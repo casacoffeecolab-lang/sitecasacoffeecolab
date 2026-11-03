@@ -2583,7 +2583,7 @@ function renderFooter() {
             <a href="/privacidade">privacidade</a>
             <a href="/termos">termos de uso</a>
           </nav>
-          <p>Feito com afeto ☕</p>
+          <p>Feito com afeto por <a class="ft-credit-link" href="https://www.instagram.com/mathbonato/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Matheus Bonato">Matheus Bonato</a> ☕</p>
         </div>
       </div>
     </footer>
@@ -2826,17 +2826,13 @@ function renderTabbar() {
   el.className = 'tabbar';
   el.setAttribute('data-tabbar', '');
   el.setAttribute('aria-label', 'Navegação rápida');
-  // Três de cada lado do "C". A entrada dos Eventos deixou a NAV com seis itens,
-  // e seis itens mais o botão do meio só ficam simétricos assim — com cinco, o
-  // "C" saía do centro da tela, que é justamente o lugar de onde ele tira a
-  // força de âncora. O ganho de tabela: "O Casa" ENTRA na tab bar, que até aqui
-  // mostrava quatro dos cinco itens e deixava a página de apresentação da casa
-  // fora da única navegação que o celular tem.
+  // Os quatro destinos ocupam espaços iguais, dois de cada lado do "C", para
+  // manter a navegação distribuída e o início no centro da tela.
   el.innerHTML = `
     ${tab('/o-casa', 'heart', 'O Casa')}
     ${tab('/cardapio', 'utensils', 'Cardápio')}
-    ${tab('/loja', 'shopping-bag', 'Loja')}
     <a href="${HOME}" class="center" aria-label="Início"${on(HOME)}>C</a>
+    ${tab('/loja', 'shopping-bag', 'Loja')}
     ${tab('/eventos', 'party-popper', 'Eventos')}
   `;
   document.body.appendChild(el);
