@@ -2765,6 +2765,21 @@ function initEventosPage() {
       }
     }
 
+    if (guardou) {
+      const mensagemZap = [
+        'Oi, quero fazer um evento no Casa.',
+        `Nome: ${nome}`,
+        `WhatsApp: ${contato}`,
+        `Tipo: ${tipo || 'não informado'}`,
+        `Data: ${data || 'não informado'}`,
+        `Pessoas: ${pessoas ? String(pessoas) : 'não informado'}`,
+        `E-mail: ${email || 'não informado'}`,
+        `Mensagem: ${mensagem || '—'}`,
+      ].join('\n');
+      const urlZap = `https://wa.me/5551993605262?text=${encodeURIComponent(mensagemZap)}`;
+      window.open(urlZap, '_blank', 'noopener,noreferrer');
+    }
+
     if (guardou && repetido) {
       // Os campos ficam como estão de propósito: se a pessoa mudou alguma coisa,
       // ela reenvia daqui a pouco sem redigitar nada.
