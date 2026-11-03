@@ -293,7 +293,7 @@ a.txt-link.gold { color: var(--gold) }
 @media (max-width: 820px) { .brand-logo { height: 34px } }
 .site-header.scrolled .brand-logo { filter: brightness(0); opacity: .88 }
 .mainnav { display: flex; gap: 30px; margin-left: 20px }
-@media (max-width: 1080px) { .mainnav { display: none } }
+@media (max-width: 900px) { .mainnav { display: none } }
 .mainnav a, .mainnav .nav-off { color: var(--cream); text-decoration: none; font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; opacity: .9; transition: color .2s var(--e), opacity .2s var(--e) }
 .mainnav a:hover, .mainnav a[aria-current] { color: var(--gold-2); opacity: 1 }
 /* .nav-off é o item que perdeu o link (semLink no NAV do app.js): mesma aparência
@@ -311,9 +311,9 @@ a.txt-link.gold { color: var(--gold) }
 .header-right { margin-left: auto; display: flex; align-items: center; gap: 16px }
 .btn-visit { background: var(--gold); color: #231a0c; border: 0; cursor: pointer; font-family: var(--sans); font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; padding: 12px 22px; border-radius: 4px; text-decoration: none; transition: background .25s var(--e), transform .2s var(--e); white-space: nowrap }
 .btn-visit:hover { background: var(--gold-2); transform: translateY(-1px) }
-@media (max-width: 1080px) { .header-right .btn-visit { display: none } }
+@media (max-width: 900px) { .header-right .btn-visit { display: none } }
 .burger { width: 30px; height: 20px; display: none; flex-direction: column; justify-content: space-between; cursor: pointer; background: none; border: 0; padding: 0 }
-@media (max-width: 1080px) { .burger { display: flex } }
+@media (max-width: 900px) { .burger { display: flex } }
 .burger span { height: 2px; width: 100%; background: var(--cream); border-radius: 2px; transition: transform .25s var(--e), opacity .2s var(--e), background .25s var(--e) }
 .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(9px) rotate(45deg) }
 .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0 }
@@ -321,12 +321,12 @@ a.txt-link.gold { color: var(--gold) }
 
 /* peças do Casa dentro do header (auth + carrinho) */
 .auth-desktop { display: flex; align-items: center; color: var(--cream) }
-@media (max-width: 1080px) { .auth-desktop { display: none } }
+@media (max-width: 900px) { .auth-desktop { display: none } }
 /* Espelho mobile do painel do avatar: no celular o painel some junto com a
    .auth-desktop, e a conta ficava só no fundo do hambúrguer. Aqui ela volta pra
    barra, do lado do sino, a um toque. */
 .hdr-conta-mob { display: none; align-items: center; padding: 0 2px; border-radius: 999px; text-decoration: none; color: inherit }
-@media (max-width: 1080px) { .hdr-conta-mob { display: inline-flex } }
+@media (max-width: 900px) { .hdr-conta-mob { display: inline-flex } }
 .hdr-conta-mob[aria-current] .hdr-user-avatar { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--coral) }
 /* O alvo de toque continua 38px, mas o DESENHO do ícone é 22px, e essa folga de
    8px de cada lado somava ao gap de 16px da barra: o sino ficava a 26px do
@@ -391,6 +391,7 @@ a.txt-link.gold { color: var(--gold) }
    direto pra página atrás. Só o cartão captura o ponteiro e rola por dentro
    (overscroll-behavior:contain evita empurrar a página ao chegar na ponta). */
 .menu-mobile { position: fixed; inset: 0; z-index: 45; pointer-events: none }
+@media (min-width: 901px) { .menu-mobile { display: none !important } }
 .menu-mobile .menu-inner {
   position: absolute; top: calc(var(--hh) + 2px); right: 12px; left: auto;
   width: min(320px, calc(100vw - 24px));

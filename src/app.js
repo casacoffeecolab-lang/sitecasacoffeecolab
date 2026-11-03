@@ -790,6 +790,9 @@ function initHeaderInteractions() {
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Abrir menu');
     };
+    window.matchMedia('(min-width: 901px)').addEventListener('change', (e) => {
+      if (e.matches) fechar();
+    });
     const abrir = () => {
       panel.classList.remove('hidden');
       toggle.setAttribute('aria-expanded', 'true');
