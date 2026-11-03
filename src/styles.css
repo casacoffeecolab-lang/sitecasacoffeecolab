@@ -640,7 +640,7 @@ a.txt-link.gold { color: var(--gold) }
 .trilha-eyebrow { font-family: var(--sans); font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase; font-weight: 700; color: var(--gold) }
 .trilha-titulo { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); font-weight: 500; line-height: 1.1; color: var(--ink); margin: 0 }
 .trilha-sub { font-size: 15px; color: var(--muted); margin: 0 }
-.trilha-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px }
+.trilha-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 22px }
 .trilha-card { display: flex; flex-direction: column; gap: 14px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--card) }
 .trilha-card.tocando { border-color: color-mix(in srgb, var(--coral) 55%, var(--line)); box-shadow: 0 14px 40px -28px color-mix(in srgb, var(--coral) 80%, transparent) }
 .trilha-card-topo { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px }
@@ -662,7 +662,7 @@ a.txt-link.gold { color: var(--gold) }
 .agenda-eyebrow { font-family: var(--sans); font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase; font-weight: 700; color: var(--gold) }
 .agenda-titulo { font-family: var(--serif); font-size: clamp(26px, 4vw, 34px); font-weight: 500; line-height: 1.1; color: var(--ink); margin: 0 }
 .agenda-sub { font-size: 15px; color: var(--muted); margin: 0 }
-.agenda-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px }
+.agenda-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px }
 .agenda-card { display: flex; flex-direction: column; gap: 12px; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); transition: border-color .2s var(--e), box-shadow .2s var(--e) }
 .agenda-card.vou { border-color: color-mix(in srgb, var(--coral) 50%, var(--line)); box-shadow: 0 14px 40px -30px color-mix(in srgb, var(--coral) 80%, transparent) }
 .agenda-quando { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: color-mix(in srgb, var(--gold) 14%, transparent); color: color-mix(in srgb, var(--gold) 72%, var(--ink)); font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: .01em }
@@ -2244,7 +2244,7 @@ a.tds-chip:hover { background: color-mix(in srgb, var(--gold) 34%, transparent) 
 }
 .ad-perm-mini { border: 0; background: none; padding: 0; font-family: var(--sans); font-size: 12.5px; font-weight: 600; color: var(--muted); text-decoration: underline; text-underline-offset: 2px; cursor: pointer }
 .ad-perm-mini:hover { color: var(--coral) }
-.ad-perms { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px }
+.ad-perms { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px }
 
 /* Uma página = um bloco, com o nome em cima e as ações embaixo. As ações ficam
    em fila, e quando não cabem elas quebram (não encolhem): "arrumar" espremido
@@ -2268,7 +2268,7 @@ a.tds-chip:hover { background: color-mix(in srgb, var(--gold) 34%, transparent) 
 .ad-ajuste { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; padding: 16px; border: 1px dashed var(--line); border-radius: 12px; background: var(--paper-2) }
 
 /* ---------- tua conta ---------- */
-.ad-duas { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start }
+.ad-duas { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; align-items: start }
 .ad-duas .ad-card { gap: 10px }
 .ad-lista-simples { display: flex; flex-direction: column; gap: 8px; list-style: none; padding: 0; margin: 0 }
 .ad-lista-simples li { display: flex; align-items: center; gap: 9px; font-size: 15px; color: var(--ink-2) }
