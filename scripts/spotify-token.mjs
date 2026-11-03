@@ -69,7 +69,13 @@ async function trocarCodigoPorTokens(code) {
     }),
   });
   const data = await res.json();
-  if (!res.ok) throw new Error(`Spotify respondeu ${res.status}: ${JSON.stringify(data)}`);
+  if (!res.ok) {
+    const code = typeof data?.error === 'string' ? data.error : 'erro_desconhecido';
+    const erro = new Error(`Spotify respondeu ${res.status}: ${JSON.stringify(data)}`);
+    erro.status = res.status;
+    erro.code = code;
+    throw erro;
+  }
   return data;
 }
 
@@ -118,7 +124,16 @@ const server = http.createServer(async (req, res) => {
     );
   } catch (e) {
     res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
-    res.end(fecharPagina('deu ruim', 'não deu pra trocar o código pelo token, olha o terminal.'));
+    const status = Number.isInteger(e?.status) ? `HTTP ${e.status}` : 'falha de conexão';
+    const code = typeof e?.code === 'string' && /^[a-z0-9_-]+$/i.test(e.code)
+      ? ` (${e.code})`
+      : '';
+    res.end(
+      fecharPagina(
+        'deu ruim',
+        `não deu pra trocar o código pelo token. ${status}${code}. Confere o terminal.`,
+      ),
+    );
     console.error('\n✗ Falha ao trocar o código:', e.message, '\n');
   } finally {
     server.close();
