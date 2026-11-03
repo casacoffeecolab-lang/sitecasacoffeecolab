@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Que bom te ver de volta, entrar</title>
+    <meta
+      name="description"
+      content="Entra na tua conta do Casa Coffee Colab e continua de onde parou."
+    />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <main>
+      <!-- ===================================================================
+           CABEÇALHO — página interna simples (sem hero escuro), paper claro
+           =================================================================== -->
+      <section class="page-head">
+        <div class="wrap" style="max-width: 480px; margin: 0 auto; text-align: center">
+          <span class="eyebrow coral">Que bom te ver de volta</span>
+          <h1 class="title md" style="margin-top: 10px">Entra na tua conta</h1>
+          <p class="lede" style="margin: 14px auto 0">
+            Continua de onde tu parou, a xícara ainda tá quente. ☕
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           FORMULÁRIO DE LOGIN — hooks pro initLoginPage (app.js):
+           [data-login-form], name="email"/name="senha", [data-form-erro],
+           [data-reset-msg], [data-reset], [data-toggle-senha].
+           =================================================================== -->
+      <section class="section tight">
+        <div class="wrap">
+          <form class="card form" data-login-form novalidate style="margin: 0 auto">
+            <div class="field">
+              <label for="log-email" class="lbl">e-mail</label>
+              <input
+                id="log-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="inp"
+                placeholder="teu@email.com"
+              />
+            </div>
+
+            <div class="field">
+              <div class="log-field-row">
+                <label for="log-senha" class="lbl">senha</label>
+                <button type="button" data-reset class="form-link">esqueci a senha</button>
+              </div>
+              <div class="pw-wrap">
+                <input
+                  id="log-senha"
+                  name="senha"
+                  type="password"
+                  autocomplete="current-password"
+                  required
+                  class="inp"
+                  placeholder="tua senha"
+                />
+                <!-- olhinho de mostrar/ocultar senha (setupPasswordToggles no app.js) -->
+                <button
+                  type="button"
+                  data-toggle-senha
+                  aria-label="mostrar senha"
+                  aria-pressed="false"
+                  class="pw-toggle"
+                >
+                  <i data-lucide="eye" class="h-5 w-5"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Erro do login (preenchido pelo initLoginPage) -->
+            <p class="notice err hidden" data-form-erro aria-live="polite"></p>
+            <!-- Confirmação do "esqueci a senha" (preenchido pelo initLoginPage) -->
+            <p class="notice ok hidden" data-reset-msg aria-live="polite"></p>
+
+            <button type="submit" class="btn solid block lg">entrar</button>
+
+            <!-- "ou / continuar com o Google" — injetado pelo initGoogleAuth (app.js).
+                 Fica DENTRO do form de propósito: é de lá que ele pega o
+                 [data-form-erro] pra avisar quando algo não sai. -->
+            <div class="google-slot" data-google-slot></div>
+
+            <p class="log-foot">
+              ainda não tem conta?
+              <a href="/cadastro" class="form-link">cria a tua</a>.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <!-- Estilos pontuais desta página (linha do rótulo+reset, rodapé do form).
+         O olhinho da senha (.pw-wrap/.pw-toggle) e o .notice.hidden saíram daqui
+         pro styles.css — são compartilhados com o cadastro e com o painel de
+         senha nova do /auth-confirmado. -->
+    <style>
+      .log-field-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .log-foot {
+        text-align: center;
+        font-size: 13px;
+        color: var(--muted);
+        margin: 4px 0 0;
+      }
+    </style>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- console interno: fora do site público e fora dos buscadores -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>console · Casa Coffee Colab</title>
+    <!-- O favicon vive num arquivo, não embutido no href. O SVG precisa do
+         `xmlns='http://www.w3.org/2000/svg'` pra renderizar, e com o data: URI
+         percent-encoded esse endereço vira texto legível dentro do atributo:
+         scanner de segurança lê ali um recurso externo sem `integrity` e abre
+         um alerta que não tem como resolver (SRI não se aplica a data: URI, e
+         o navegador ignora `integrity` em rel="icon"). Num arquivo o problema
+         não existe, e ainda dá cache. -->
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body class="ad-page">
+    <!-- toda a casca é montada pelo admin.js, conforme as permissões da pessoa -->
+    <div data-console-root>
+      <div class="ad-boot"><p>abrindo o balcão…</p></div>
+    </div>
+
+    <div class="ad-toast" data-toast hidden role="status" aria-live="polite"></div>
+
+    <script type="module" src="/admin.js"></script>
+  </body>
+</html>

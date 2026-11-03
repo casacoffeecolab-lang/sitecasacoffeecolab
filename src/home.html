@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Casa Coffee Colab</title>
+    <meta name="description" content="Slow coffee, good food, better days. Na Hamburgo Velho, Novo Hamburgo/RS." />
+
+    <!-- Card de compartilhamento (WhatsApp, Instagram, etc.). Sem estas tags o
+         raspador cai no title + description e monta um bloco de texto sem foto —
+         por isso og:title e og:description são bem mais curtos que os de cima:
+         no card, quem fala é a imagem. A og:image PRECISA de URL absoluta; com
+         caminho relativo o WhatsApp ignora e volta a mostrar só texto.
+         O domínio está fixo aqui de propósito: o card é sempre raspado do site
+         no ar, nunca do localhost. Quando sair o domínio próprio, trocar em
+         og:url e og:image de todas as páginas (grep por vercel.app). -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Casa Coffee Colab" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Casa Coffee Colab" />
+    <meta property="og:description" content="Slow coffee, good food, better days." />
+    <meta property="og:url" content="https://casacoffeecolab.vercel.app/home" />
+    <meta property="og:image" content="https://casacoffeecolab.vercel.app/fotos/o-casa-fachada.jpg" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    <meta property="og:image:alt" content="A fachada do Casa na Hamburgo Velho, com mesas na calçada" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <main>
+      <!-- ===================================================================
+           HERO — [data-hero-transparent] deixa o header transparente sobre o
+           fundo escuro (o app.js troca pra sólido ao rolar).
+
+           O fundo é um carrossel (setupHeroCarousel no app.js): cada
+           [data-hero-slide] é uma mídia full-bleed, foto OU vídeo, e elas
+           trocam com crossfade. O texto NÃO troca — ele fica parado por cima,
+           a mídia é que respira atrás.
+
+           Pra somar uma foto:
+             <div class="hero-slide" data-hero-slide>
+               <img src="/fotos/arquivo.jpg" alt="descrição" />
+             </div>
+           Pra somar um vídeo (mudo, em loop de carrossel — avança quando acaba):
+             <div class="hero-slide" data-hero-slide data-video>
+               <video src="/videos/arquivo.mp4" poster="/fotos/capa.jpg"
+                      muted playsinline preload="metadata"></video>
+             </div>
+           O primeiro slide leva .is-on pra já aparecer no primeiro frame.
+           Foto fica 6s (ajustável por slide com data-duracao="8000"); vídeo
+           fica até terminar.
+           =================================================================== -->
+      <section class="hero" data-hero-transparent data-hero-carousel>
+        <div class="hero-media" data-hero-media>
+          <!-- 1. abertura: o vídeo do Casa. Sem data-duracao de propósito — o
+               app.js deixa o vídeo rodar até o fim e só então vira o slide.
+               O poster é o primeiro frame, pra não piscar preto enquanto carrega. -->
+          <div class="hero-slide is-on" data-hero-slide>
+            <video
+              src="/videos/hero-casa.mp4"
+              poster="/videos/hero-casa.jpg"
+              preload="auto"
+              muted
+              playsinline
+              aria-label="Um casal sentado à mesa do Casa, conversando na luz da janela"
+            ></video>
+          </div>
+          <!-- 2 e 3: fotos reais. TODO: trocar pelas definitivas do hero -->
+          <div class="hero-slide" data-hero-slide>
+            <img
+              data-foto="home-hero-2"
+              src="/fotos/o-casa-fachada.jpg"
+              alt="Fachada do Casa Coffee Colab na Hamburgo Velho, com mesas na calçada e gente sentada conversando"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="hero-slide" data-hero-slide>
+            <img
+              data-foto="home-hero-3"
+              src="/fotos/clube-abraco.jpg"
+              alt="Duas amigas se abraçando e rindo dentro do Casa"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <div class="scrim"></div>
+        <div class="wrap">
+          <div class="reveal">
+            <!-- .ln marca cada peça que entra deslizando, na ordem em que aparece
+                 (ver .hero .ln no styles.css). .dir = vem da direita, .esq = vem
+                 da esquerda — o lado alterna do título até o link. No <h1>, cada
+                 <span class="ln"> faz o papel de um <br>. -->
+            <h1>
+              <span class="ln dir">Slow coffee.</span>
+              <span class="ln dir">Good food.</span>
+              <span class="ln esq coral">Better days.</span>
+            </h1>
+            <div class="rule ln dir"></div>
+            <p class="sub ln esq">Um lugar para desacelerar, se conectar e aproveitar os bons momentos.</p>
+            <a class="txt-link ln dir" href="/o-casa">Conheça o Casa <span class="arrow">→</span></a>
+          </div>
+        </div>
+        <!-- Controles do carrossel: discretos, um em cada canto de baixo — o de
+             voltar na esquerda, o de pular na direita, cada um do lado pra onde
+             leva. Mesma pílula nos dois, com o rótulo espelhado: a seta do
+             "voltar" vem antes do texto, a do "pular" depois. O app.js esconde
+             os dois sozinho quando só existe um slide. -->
+        <button
+          type="button"
+          class="hero-prev"
+          data-hero-prev
+          aria-label="Voltar pra imagem anterior"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 4l-10 8 10 8z" />
+            <path d="M5 5v14" />
+          </svg>
+          <span>voltar</span>
+        </button>
+        <button
+          type="button"
+          class="hero-skip"
+          data-hero-skip
+          aria-label="Pular pra próxima imagem"
+        >
+          <span>pular</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 4l10 8-10 8z" />
+            <path d="M19 5v14" />
+          </svg>
+        </button>
+        <!-- Bolinhas de posição, no meio dos dois botões: quantas imagens existem
+             e em qual a pessoa está. Nascem vazias — quem monta uma por slide (e
+             esconde quando só há um) é o setupHeroCarousel. -->
+        <div class="hero-dots" data-hero-dots role="group" aria-label="Imagens do hero"></div>
+      </section>
+
+      <!-- ===================================================================
+           O TEU DE SEMPRE — cartão pessoal no topo da home, só pra quem está
+           logado. Junta num olhar o que a pessoa já tem espalhado: plano/pontos,
+           favoritos do cardápio e o próximo encontro que confirmou. Preenchido
+           pós-render por initTeuDeSempre (só-leitura). Fica escondido deslogado.
+           =================================================================== -->
+      <section class="section tight tds reveal" data-teu-de-sempre hidden aria-label="O teu de sempre">
+        <div class="wrap">
+          <div class="tds-card" data-tds-card></div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           AGENDA — o que acontece no Casa
+           =================================================================== -->
+      <section class="agenda" data-rastro-secao="a agenda do Casa">
+        <div class="wrap">
+          <div class="head reveal">
+            <span class="label">O que acontece no Casa</span>
+          </div>
+          <div class="ag-grid reveal">
+            <article class="ag-card">
+              <span class="num">01</span>
+              <h3>In the Flow</h3>
+              <p class="meta">Música · Café · Pessoas</p>
+              <div class="ph ph-vinyl has-foto">
+                <img
+                  data-foto="home-agenda-in-the-flow"
+                  src="/fotos/agenda-in-the-flow.jpg"
+                  alt="Músico de boné e óculos escuros tocando violino sobre a mesa de discotecagem, na calçada do Casa, no In the Flow"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </article>
+            <article class="ag-card">
+              <span class="num">02</span>
+              <h3>Matcha Club</h3>
+              <p class="meta">Encontro · Matchá · Conexão</p>
+              <div class="ph ph-matcha has-foto">
+                <img
+                  data-foto="home-agenda-matcha"
+                  src="/fotos/agenda-matcha-club.jpg"
+                  alt="Matchá sendo despejado de uma jarrinha de metal num copo alto com camadas de leite, maracujá e gelo, sobre a mesa de madeira do Casa"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </article>
+            <article class="ag-card">
+              <span class="num">03</span>
+              <h3>Brunch</h3>
+              <p class="meta">Todo domingo · 10h às 15h</p>
+              <div class="ph ph-brunch has-foto">
+                <img
+                  data-foto="home-agenda-brunch"
+                  src="/fotos/agenda-brunch.jpg"
+                  alt="Prato de brunch do Casa com ovos mexidos, torradas de pão rústico, tomate assado e muçarela de búfala com pesto"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <a class="circle-arrow" href="/cardapio" aria-label="Ver o cardápio do brunch">→</a>
+              </div>
+            </article>
+            <article class="ag-card">
+              <span class="num">04</span>
+              <h3>Happy Hour</h3>
+              <p class="meta">Sexta · 17h às 20h</p>
+              <div class="ph ph-drink has-foto">
+                <img
+                  data-foto="home-agenda-happy-hour"
+                  src="/fotos/agenda-happy-hour.jpg"
+                  alt="Duas amigas sentadas numa mesa do Casa, brindando com taças de espumante e um drink de maracujá com hortelã"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <a class="circle-arrow" href="/cardapio" aria-label="Ver o cardápio do happy hour">→</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           DUO — Clube (planos) / Loja
+           =================================================================== -->
+      <section class="duo reveal">
+        <div class="half clube">
+          <div class="ph ph-tote has-foto">
+            <img
+              data-foto="home-duo-clube"
+              src="/fotos/clube-abraco.jpg"
+              alt="Duas amigas se abraçando e rindo dentro do Casa, uma delas de bandana verde e camiseta do Casa"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="scrim2"></div>
+          <div class="content">
+            <span class="label eyebrow">Clube Casa</span>
+            <h2>Fazer parte<br />muda tudo.</h2>
+            <p class="desc">Benefícios, pontos que viram mimo e experiências que só quem é do Casa tem.</p>
+            <a class="txt-link" href="/planos">Conheça o Clube <span class="arrow">→</span></a>
+          </div>
+        </div>
+        <div class="half loja">
+          <div class="ph ph-dark has-foto">
+            <img
+              data-foto="home-duo-loja"
+              src="/fotos/loja-cafe.jpg"
+              alt="Barista de jardineira jeans servindo café coado de uma jarra de vidro num copo, na mesa de madeira do Casa"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="scrim2"></div>
+          <div class="content">
+            <span class="label eyebrow">Loja Casa</span>
+            <h2>Design, café e objetos para o dia a dia.</h2>
+            <!-- Sem link, igual ao item da nav: a loja ainda não abriu pro público.
+                 A página /loja segue no ar pra quem digitar a URL. -->
+            <span class="txt-link txt-off">Ver loja <span class="nav-selo">em breve</span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           PRESENTE — faixa chamativa: dá um plano de presente
+           =================================================================== -->
+      <section class="gift-band reveal" aria-label="Presenteia um mês do Casa">
+        <div class="wrap gift-band-inner">
+          <span class="gift-band-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="8" width="18" height="4" rx="1" />
+              <path d="M12 8v13M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7" />
+              <path d="M12 8S10.5 3 7.5 3 4 6 4 6s1.5 2 4 2h4zM12 8s1.5-5 4.5-5S20 6 20 6s-1.5 2-4 2h-4z" />
+            </svg>
+          </span>
+          <div class="gift-band-text">
+            <span class="gift-band-eyebrow">um mimo pra quem tu gosta</span>
+            <h2>Dá o Casa de presente</h2>
+            <p>um mês de plano, com o teu bilhete junto. A pessoa resgata e fica um pouco por aqui, por tua conta. 💛</p>
+          </div>
+          <a href="/presentear" class="gift-band-btn">presentear alguém <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           FEATURES — o que é o Casa (ícones inline, sem links)
+           =================================================================== -->
+      <section class="features" data-rastro-secao="os quatro atalhos">
+        <div class="wrap">
+          <div class="feat reveal">
+            <svg class="ic" viewBox="0 0 40 40" aria-hidden="true">
+              <g stroke="#df5638" stroke-width="3" stroke-linecap="round">
+                <line x1="20" y1="6" x2="20" y2="34" />
+                <line x1="6" y1="20" x2="34" y2="20" />
+                <line x1="10" y1="10" x2="30" y2="30" />
+                <line x1="30" y1="10" x2="10" y2="30" />
+              </g>
+            </svg>
+            <h4>Eventos</h4>
+            <p>Música, talks, feiras e experiências únicas.</p>
+          </div>
+          <div class="feat reveal">
+            <svg class="ic" viewBox="0 0 40 40" aria-hidden="true">
+              <g fill="none" stroke="#4c7a3e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 34V16" />
+                <path d="M20 22c-2-6-8-8-13-8 0 7 5 10 13 10z" />
+                <path d="M20 19c2-5 7-7 12-7 0 6-5 9-12 9z" />
+              </g>
+            </svg>
+            <h4>Cafés especiais</h4>
+            <p>Grãos selecionados e torra feita com propósito.</p>
+          </div>
+          <div class="feat reveal">
+            <svg class="ic" viewBox="0 0 40 40" aria-hidden="true">
+              <g fill="none" stroke="#c49a46" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6l3 6 6 1-4.5 4.5L26 24l-6-3-6 3 1.5-6.5L11 13l6-1z" />
+                <path d="M20 24v10" />
+              </g>
+            </svg>
+            <h4>Comida autoral</h4>
+            <p>Brunch, sanduíches, doces e receitas de verdade.</p>
+          </div>
+          <div class="feat reveal">
+            <svg class="ic" viewBox="0 0 40 40" aria-hidden="true">
+              <g fill="#3f6f9a">
+                <circle cx="14" cy="15" r="4" />
+                <circle cx="26" cy="15" r="4" />
+                <path d="M6 32c0-5 3.6-8 8-8s8 3 8 8z" />
+                <path d="M20 32c0-5 3.6-8 8-8s8 3 8 8z" opacity=".8" />
+              </g>
+            </svg>
+            <h4>Comunidade</h4>
+            <p>Pessoas, encontros e boas histórias.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           AGENDA — os próximos encontros do Casa, curados no console do adm.
+           Fica escondida até haver ao menos um encontro ativo/futuro (initAgenda).
+           =================================================================== -->
+      <section class="agenda reveal" id="a-agenda" data-agenda hidden aria-label="A agenda do Casa">
+        <div class="wrap">
+          <div class="agenda-cabeca">
+            <span class="agenda-eyebrow">um café-casa de encontros</span>
+            <h2 class="agenda-titulo">a agenda do Casa</h2>
+            <p class="agenda-sub">o que vem por aí. senta com a gente?</p>
+          </div>
+          <div class="agenda-lista" data-agenda-lista></div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           TRILHA — as playlists do Casa (Spotify), curadas no console do adm.
+           Fica escondida até haver ao menos uma playlist ativa (initTrilha).
+           =================================================================== -->
+      <section class="trilha reveal" data-trilha hidden aria-label="A trilha do Casa">
+        <div class="wrap">
+          <div class="trilha-cabeca">
+            <span class="trilha-eyebrow">o som da casa</span>
+            <h2 class="trilha-titulo">a trilha do Casa</h2>
+            <p class="trilha-sub">o que embala a gente por aqui, pra levar contigo.</p>
+          </div>
+          <div class="trilha-grid" data-trilha-grid></div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           O SOM DE AGORA — painel "tá tocando no Casa", com link pro Spotify.
+           O href do botão vem do MARCA.redes (via initSomDoCasa), mesma fonte do
+           rodapé: quando entrar a URL real do Spotify, vale nos dois lugares.
+           O equalizador é decorativo (CSS puro, para no prefers-reduced-motion).
+           TODO (som ao vivo de verdade): mostrar a faixa que toca agora exige a
+           Spotify Web API com o token da conta do Casa, atualizado numa Edge
+           Function (OAuth + secret). Por ora o painel convida a ouvir junto.
+           =================================================================== -->
+      <section class="som reveal" aria-label="O som de agora no Casa">
+        <div class="wrap">
+          <div class="som-inner">
+            <!-- AO VIVO: preenchido por initSomDoCasa quando há faixa tocando de
+                 fato na conta do Casa (capa, faixa, artista e progresso). -->
+            <div class="som-live" data-som-live hidden>
+              <img class="som-capa" data-som-capa alt="" width="120" height="120" />
+              <span class="som-eyebrow"><span class="som-dot" aria-hidden="true"></span>tocando agora</span>
+              <p class="som-faixa" data-som-faixa></p>
+              <p class="som-artista" data-som-artista></p>
+              <div class="som-barra" aria-hidden="true"><span data-som-progresso></span></div>
+              <a class="som-link" data-som-abrir href="#" target="_blank" rel="noopener noreferrer">
+                ouvir no Spotify <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+            <!-- GENTIL: nada tocando agora (ou integração ainda não ligada) —
+                 fica só o equalizador miúdo que se mexe, sem texto. -->
+            <div class="som-idle" data-som-idle>
+              <span class="som-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <!-- Faixa de presente: warm, chamativa, no tom da marca (sem cara de promoção). -->
+    <style>
+      .gift-band { padding: clamp(28px, 5vw, 56px) 0 }
+      .gift-band-inner {
+        display: flex; align-items: center; gap: clamp(18px, 3vw, 40px);
+        padding: clamp(24px, 4vw, 44px) clamp(22px, 4vw, 48px);
+        border-radius: 26px;
+        background:
+          radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--coral-2, #e86c4f) 92%, #fff) 0%, transparent 55%),
+          linear-gradient(135deg, var(--coral) 0%, #b5432c 100%);
+        color: #fff8f1;
+        box-shadow: 0 26px 60px -32px color-mix(in srgb, var(--coral) 80%, #000);
+        overflow: hidden; position: relative;
+      }
+      .gift-band-icon {
+        flex: none; display: grid; place-items: center;
+        width: clamp(56px, 8vw, 78px); height: clamp(56px, 8vw, 78px);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+      }
+      .gift-band-icon svg { width: 55%; height: 55%; color: #fff }
+      .gift-band-text { flex: 1; min-width: 0 }
+      .gift-band-eyebrow {
+        display: inline-block; font-family: var(--sans); font-size: 12.5px;
+        font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        color: rgba(255, 248, 241, 0.82); margin-bottom: 6px;
+      }
+      .gift-band-text h2 {
+        font-family: var(--serif); font-size: clamp(24px, 3.4vw, 36px);
+        line-height: 1.05; margin: 0; color: #fff;
+      }
+      .gift-band-text p {
+        margin: 10px 0 0; max-width: 52ch; font-family: var(--sans);
+        font-size: 15px; line-height: 1.6; color: rgba(255, 248, 241, 0.92);
+      }
+      .gift-band-btn {
+        flex: none; display: inline-flex; align-items: center; gap: 8px;
+        padding: 14px 26px; border-radius: 999px;
+        background: #fff8f1; color: var(--coral);
+        font-family: var(--sans); font-size: 15px; font-weight: 600;
+        text-decoration: none; white-space: nowrap;
+        box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.5);
+        transition: transform 0.16s ease, box-shadow 0.16s ease;
+      }
+      .gift-band-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -14px rgba(0, 0, 0, 0.55) }
+      .gift-band-btn span { transition: transform 0.16s ease }
+      .gift-band-btn:hover span { transform: translateX(3px) }
+      @media (max-width: 760px) {
+        .gift-band-inner { flex-direction: column; text-align: center; align-items: center }
+        .gift-band-text p { margin-left: auto; margin-right: auto }
+        .gift-band-btn { width: 100%; justify-content: center }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .gift-band-btn, .gift-band-btn span { transition: none }
+      }
+    </style>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

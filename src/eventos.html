@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Teu evento no Casa, Casa Coffee Colab</title>
+    <meta
+      name="description"
+      content="Aniversário, reunião, workshop, chá de casa nova: conta pra gente o que tu quer fazer e a gente monta contigo. O Casa é um café-casa de encontros."
+    />
+
+    <!-- Card de compartilhamento, ver o comentário longo no home.html. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Casa Coffee Colab" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Teu evento no Casa" />
+    <meta
+      property="og:description"
+      content="Conta o que tu quer comemorar e a gente monta contigo, com café, comida boa e a casa inteira."
+    />
+    <meta property="og:url" content="https://casacoffeecolab.vercel.app/eventos" />
+    <meta property="og:image" content="https://casacoffeecolab.vercel.app/fotos/o-casa-fachada.jpg" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    <meta property="og:image:alt" content="A fachada do Casa na Hamburgo Velho, com mesas na calçada" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <main>
+      <!-- ===================================================================
+           Intro
+           =================================================================== -->
+      <section class="page-head">
+        <div class="wrap">
+          <div class="reveal">
+            <span class="eyebrow coral">a casa também é tua</span>
+            <h1 class="title lg">Faz teu evento aqui</h1>
+            <div class="rule coral"></div>
+            <p class="lede">
+              O Casa é um café-casa de encontros, e às vezes o encontro é teu:
+              um aniversário sem pressa, a reunião que não cabia na sala, um
+              workshop, um chá, um ensaio. Conta pra gente o que tu tem em mente
+              e a gente monta junto, do café à comida.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           CARROSSEL — a casa por dentro. Reutiliza o setupCarousel via
+           data-carousel="cards" (mesmo contrato do /colab): [data-carousel]
+           › [data-carousel-track] › N [data-carousel-slide filhos diretos],
+           mais os opcionais [data-carousel-prev]/[data-carousel-next].
+           Vem logo depois da abertura de propósito: quem pensa em fazer um
+           evento decide com os olhos, e ler seis cartões de texto antes de ver
+           a casa é pedir fé.
+           =================================================================== -->
+      <section data-carousel="cards" class="section" aria-labelledby="ev-casa-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow green">a casa por dentro</span>
+              <h2 id="ev-casa-title" class="title md" style="margin-top: 10px">
+                Onde o teu evento acontece
+              </h2>
+            </div>
+            <div class="carousel-nav">
+              <button data-carousel-prev type="button" aria-label="Anterior" class="icon-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <button data-carousel-next type="button" aria-label="Próximo" class="icon-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div data-carousel-track class="carousel-track ev-track" aria-label="A casa por dentro">
+          <article class="carousel-slide ev-slide w-[82%] sm:w-[56%] lg:w-[38%]">
+            <div class="ph ph-tan light has-foto">
+              <img
+                data-foto="eventos-casa-1"
+                src="/fotos/o-casa-fachada.jpg"
+                alt="Fachada do Casa Coffee Colab na Hamburgo Velho, com mesas na calçada e gente sentada conversando"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="ev-slide-body">
+              <span class="tag coral">a casa inteira</span>
+              <h3 class="title sm" style="margin-top: 10px">Dentro e na calçada</h3>
+              <p class="ev-slide-txt">
+                dá pra fechar a casa toda ou reservar um canto, com as mesas da
+                calçada entrando na conta no fim da tarde.
+              </p>
+            </div>
+          </article>
+
+          <article class="carousel-slide ev-slide w-[82%] sm:w-[56%] lg:w-[38%]">
+            <div class="ph ph-brunch has-foto">
+              <img
+                data-foto="eventos-casa-2"
+                src="/fotos/agenda-brunch.jpg"
+                alt="Prato de louça rústica com ovos mexidos, torradas de pão de fermentação natural, tomate assado e muçarela de búfala, servido na mesa do Casa"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="ev-slide-body">
+              <span class="tag gold">a mesa posta</span>
+              <h3 class="title sm" style="margin-top: 10px">Brunch pra tua gente</h3>
+              <p class="ev-slide-txt">
+                a comida é feita aqui, no dia. A gente monta o cardápio junto,
+                pelo tanto de gente que vai.
+              </p>
+            </div>
+          </article>
+
+          <article class="carousel-slide ev-slide w-[82%] sm:w-[56%] lg:w-[38%]">
+            <div class="ph ph-dark has-foto">
+              <img
+                data-foto="eventos-casa-3"
+                src="/fotos/agenda-in-the-flow.jpg"
+                alt="Músico de boné e óculos escuros tocando violino sobre a mesa de discotecagem, na calçada do Casa, sob o letreiro Café e muita coisa boa"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="ev-slide-body">
+              <span class="tag coral">som ao vivo</span>
+              <h3 class="title sm" style="margin-top: 10px">Música, se tu quiser</h3>
+              <p class="ev-slide-txt">
+                a casa já recebe música toda semana, então tem estrutura e gente
+                boa pra chamar pro teu dia.
+              </p>
+            </div>
+          </article>
+
+          <article class="carousel-slide ev-slide w-[82%] sm:w-[56%] lg:w-[38%]">
+            <div class="ph ph-drink has-foto">
+              <img
+                data-foto="eventos-casa-4"
+                src="/fotos/agenda-happy-hour.jpg"
+                alt="Duas amigas sentadas numa mesa do Casa, brindando com taças de espumante e um drink de maracujá com hortelã"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="ev-slide-body">
+              <span class="tag gold">o brinde</span>
+              <h3 class="title sm" style="margin-top: 10px">Fim de tarde que vira noite</h3>
+              <p class="ev-slide-txt">
+                drink, espumante e petisco pra comemoração que começa cedo e não
+                tem pressa de acabar.
+              </p>
+            </div>
+          </article>
+
+          <article class="carousel-slide ev-slide w-[82%] sm:w-[56%] lg:w-[38%]">
+            <div class="ph ph-matcha has-foto">
+              <img
+                data-foto="eventos-casa-5"
+                src="/fotos/agenda-matcha-club.jpg"
+                alt="Matchá sendo despejado de uma jarrinha de metal num copo alto com camadas de leite e maracujá fresco, na mesa de madeira do Casa"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="ev-slide-body">
+              <span class="tag coral">o café da tarde</span>
+              <h3 class="title sm" style="margin-top: 10px">Café, matchá e coffee break</h3>
+              <p class="ev-slide-txt">
+                pra workshop e reunião, a pausa é o que segura a turma. Aqui ela
+                sai da máquina direto pra mesa.
+              </p>
+            </div>
+          </article>
+
+          <article class="carousel-slide ev-slide w-[82%] sm:w-[56%] lg:w-[38%]">
+            <div class="ph ph-tan light has-foto">
+              <img
+                data-foto="eventos-casa-6"
+                src="/fotos/clube-abraco.jpg"
+                alt="Duas amigas se abraçando e rindo dentro do Casa, com um disco de vinil na prateleira ao fundo"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="ev-slide-body">
+              <span class="tag gold">o que fica</span>
+              <h3 class="title sm" style="margin-top: 10px">Gente junta, que é o ponto</h3>
+              <p class="ev-slide-txt">
+                no fim das contas é isso que a casa faz melhor. A gente cuida do
+                resto pra tu ficar com a tua gente.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           O que costuma acontecer por aqui
+           =================================================================== -->
+      <section class="section">
+        <div class="wrap">
+          <div class="reveal" style="max-width: 640px">
+            <span class="eyebrow green">tem de tudo</span>
+            <h2 class="title md" style="margin-top: 10px">O que já rolou na casa</h2>
+            <p style="margin-top: 12px; color: var(--ink-2); line-height: 1.7">
+              a casa cabe do café da manhã pra dez pessoas à noite de lançamento
+              com a sala cheia. Se o teu não está na lista, chama do mesmo jeito,
+              a gente gosta de inventar.
+            </p>
+          </div>
+
+          <div class="card-grid cols-3 ev-tipos" style="margin-top: 40px">
+            <article class="card reveal">
+              <span class="icon-badge coral"><i data-lucide="cake"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">Aniversário</h3>
+              <p class="ev-card-txt">
+                bolo, brunch e gente querida, com a casa só pra vocês ou num
+                cantinho reservado.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-badge gold"><i data-lucide="users"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">Reunião de trabalho</h3>
+              <p class="ev-card-txt">
+                aquela conversa que rende mais longe do escritório, com café na
+                mesa e wi-fi que aguenta.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-badge green"><i data-lucide="sparkles"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">Workshop ou curso</h3>
+              <p class="ev-card-txt">
+                a sala vira oficina: mesa grande, projetor e coffee break feito
+                aqui na hora.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-badge coral"><i data-lucide="heart"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">Chá e comemoração</h3>
+              <p class="ev-card-txt">
+                chá de casa nova, de bebê, noivado. Coisa de gente reunida, que é
+                o que a casa faz melhor.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-badge gold"><i data-lucide="camera"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">Ensaio e gravação</h3>
+              <p class="ev-card-txt">
+                a luz da tarde aqui é bonita de doer. Dá pra combinar horário
+                fora do movimento.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-badge green"><i data-lucide="music"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">Lançamento e sarau</h3>
+              <p class="ev-card-txt">
+                livro novo, disco novo, exposição. A casa já é de colab, isso
+                aqui é quase rotina.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           O formulário. Preenche e a gente guarda; o aviso do pedido novo vai
+           pro Telegram da equipe pela trigger da 0052 (initEventosPage no app.js).
+           =================================================================== -->
+      <section class="section paper2">
+        <div class="wrap">
+          <div class="ev-form-wrap reveal">
+            <div style="max-width: 620px">
+              <span class="eyebrow coral">conta pra gente</span>
+              <h2 class="title md" style="margin-top: 10px">Como a gente combina</h2>
+              <p style="margin-top: 12px; color: var(--ink-2); line-height: 1.7">
+                preenche o que tu já sabe, o resto a gente acerta na conversa.
+                Quando tu enviar, teu pedido chega direto pra equipe da casa, e
+                a gente te chama pra combinar. Sem data certa ainda? deixa em
+                branco, a gente pensa junto.
+              </p>
+            </div>
+
+            <form class="ev-form" data-evento-form novalidate>
+              <label class="field" for="ev-nome">
+                <span class="lbl">teu nome</span>
+                <input id="ev-nome" name="nome" type="text" autocomplete="name" maxlength="80" required />
+              </label>
+
+              <label class="field" for="ev-contato">
+                <span class="lbl">teu whatsapp</span>
+                <input
+                  id="ev-contato"
+                  name="contato"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  placeholder="(51) 99999-9999"
+                  data-mask-tel
+                  required
+                />
+              </label>
+
+              <label class="field" for="ev-tipo">
+                <span class="lbl">que tipo de evento</span>
+                <select id="ev-tipo" name="tipo" required>
+                  <option value="aniversário">aniversário</option>
+                  <option value="reunião de trabalho">reunião de trabalho</option>
+                  <option value="workshop ou curso">workshop ou curso</option>
+                  <option value="chá ou comemoração">chá ou comemoração</option>
+                  <option value="ensaio ou gravação">ensaio ou gravação</option>
+                  <option value="lançamento ou sarau">lançamento ou sarau</option>
+                  <option value="outro">outro, eu explico embaixo</option>
+                </select>
+              </label>
+
+              <label class="field" for="ev-data">
+                <span class="lbl">que dia (se já sabe)</span>
+                <input id="ev-data" name="data" type="date" />
+              </label>
+
+              <label class="field" for="ev-pessoas">
+                <span class="lbl">quantas pessoas, mais ou menos</span>
+                <input id="ev-pessoas" name="pessoas" type="number" min="1" max="500" inputmode="numeric" placeholder="20" />
+              </label>
+
+              <label class="field" for="ev-email">
+                <span class="lbl">teu e-mail (opcional)</span>
+                <input id="ev-email" name="email" type="email" autocomplete="email" maxlength="160" />
+              </label>
+
+              <label class="field ev-wide" for="ev-mensagem">
+                <span class="lbl">conta um pouco</span>
+                <textarea
+                  id="ev-mensagem"
+                  name="mensagem"
+                  rows="4"
+                  maxlength="600"
+                  placeholder="é o aniversário da minha mãe, a gente queria café da tarde com bolo pra umas 25 pessoas"
+                ></textarea>
+                <span class="hint" data-evento-conta>0/600</span>
+              </label>
+
+              <div class="ev-acao">
+                <button type="submit" class="btn solid block" data-evento-btn>
+                  <i data-lucide="party-popper"></i>enviar meu pedido
+                </button>
+                <p class="notice hidden" data-evento-aviso role="status" aria-live="polite"></p>
+                <p class="ev-nota">
+                  a gente guarda teu pedido aqui e responde no WhatsApp, no
+                  horário da casa. Teus dados ficam só com a gente, do jeito que
+                  está escrito na
+                  <a class="form-link" href="/privacidade">política de privacidade</a>.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           O que acontece depois
+           =================================================================== -->
+      <section class="section">
+        <div class="wrap">
+          <div class="reveal" style="max-width: 640px">
+            <span class="eyebrow gold">sem mistério</span>
+            <h2 class="title md" style="margin-top: 10px">O que acontece depois</h2>
+          </div>
+
+          <div class="card-grid cols-3" style="margin-top: 40px">
+            <article class="card reveal">
+              <span class="icon-badge coral"><i data-lucide="message-circle"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">A gente te responde</h3>
+              <p class="ev-card-txt">
+                no WhatsApp mesmo, no horário da casa. Se tu escrever de
+                madrugada, a resposta vem de manhã.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-badge gold"><i data-lucide="utensils"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">Monta contigo</h3>
+              <p class="ev-card-txt">
+                a gente sugere o que serve pro teu número de gente, tu escolhe, e
+                a conta sai sem surpresa.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-badge green"><i data-lucide="heart"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">Fica um pouco</h3>
+              <p class="ev-card-txt">
+                no dia, a casa é tua. A gente cuida do resto pra tu só aproveitar
+                com a tua gente.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <!-- Estilos pontuais desta página -->
+    <style>
+      .ev-card-txt { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.65 }
+
+      /* Carrossel "a casa por dentro". Diferente do card do /colab, que tem uma
+         faixa estreita de foto na lateral: aqui a foto é o argumento, então ela
+         ocupa a largura toda do cartão, com o texto embaixo. */
+      .ev-slide { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; height: 100% }
+      .ev-slide .ph { aspect-ratio: 4 / 3; width: 100% }
+      .ev-slide-body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1 }
+      /* Sem isto o selo vira uma faixa de ponta a ponta: filho de flex-column
+         estica no eixo transversal por padrão, e o .tag é do tamanho do texto. */
+      .ev-slide-body .tag { align-self: flex-start }
+      .ev-slide-txt { margin-top: 6px; color: var(--ink-2); font-size: 13.5px; line-height: 1.6 }
+      /* O respiro das pontas acompanha o do .wrap (22px no celular, 40px acima
+         de 640), pra o primeiro cartão nascer alinhado com o texto da seção. */
+      .ev-track { gap: 16px; padding: 4px 22px 8px; scroll-padding-left: 22px }
+      @media (min-width: 640px) { .ev-track { padding-left: 40px; padding-right: 40px; scroll-padding-left: 40px } }
+      .carousel-nav { display: none; gap: 8px }
+      @media (min-width: 640px) { .carousel-nav { display: flex } }
+      .carousel-nav button { border: 0; cursor: pointer; transition: background .2s var(--e), color .2s var(--e) }
+      .carousel-nav button:hover { background: color-mix(in srgb, var(--coral) 16%, var(--card)); color: var(--coral) }
+      .ev-tipos { --cols: 3 }
+      .ev-form-wrap { max-width: 820px; margin: 0 auto }
+      .ev-form {
+        margin-top: 30px;
+        display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px;
+      }
+      .ev-form .ev-wide, .ev-form .ev-acao { grid-column: 1 / -1 }
+      @media (max-width: 620px) { .ev-form { grid-template-columns: 1fr } }
+      .ev-form select, .ev-form textarea { resize: vertical }
+      .ev-acao { text-align: center; margin-top: 6px }
+      .ev-acao .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px }
+      .ev-acao .btn svg { width: 18px; height: 18px }
+      .ev-nota { margin-top: 14px; color: var(--muted); font-size: 13px; line-height: 1.65 }
+      .ev-nota .form-link { font-size: inherit }
+    </style>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

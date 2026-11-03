@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Presenteia um mês do Casa, Casa Coffee Colab</title>
+    <meta
+      name="description"
+      content="Dá o Casa de presente: um mês de plano pra alguém que tu gosta. Café, afeto e comida boa, embrulhados num código."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Casa Coffee Colab" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Presenteia um mês do Casa" />
+    <meta property="og:description" content="Dá um mês do Casa de presente pra quem tu gosta." />
+    <meta property="og:url" content="https://casacoffeecolab.vercel.app/presentear" />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <main>
+      <!-- ===================================================================
+           Intro
+           =================================================================== -->
+      <section class="page-head">
+        <div class="wrap">
+          <div class="reveal">
+            <span class="eyebrow coral">um mês do Casa, de presente</span>
+            <h1 class="title lg">Presenteia um mês do Casa</h1>
+            <div class="rule coral"></div>
+            <p class="lede">
+              café é afeto, e afeto se dá. Deixa um bilhete e a gente te devolve um
+              código pra tu entregar pra quem tu quiser. Quem ganha resgata na conta e
+              aproveita um mês inteiro do Casa. Sem cartão da pessoa, sem renovar
+              escondido: é presente, e presente não cobra depois.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Escolher o plano + bilhete
+           =================================================================== -->
+      <section class="section">
+        <div class="wrap">
+          <div class="gift-wrap reveal" data-presentear data-gift-tier="bronze">
+            <!-- 1. O presente. O clube é uma assinatura só, então não há o que
+                 escolher: o cartão abaixo é informativo, e o slug da categoria de
+                 entrada viaja no data-gift-tier do bloco (o app.js lê dali quando
+                 não existe radio). O preço de verdade vem do BANCO na function. -->
+            <div class="gift-step">
+              <span class="eyebrow coral">1 · o presente</span>
+              <h2 class="title md" style="margin-top: 8px">Um mês inteiro de Casa</h2>
+
+              <div class="gift-unico">
+                <span class="gift-unico-ico" aria-hidden="true"><i data-lucide="gift"></i></span>
+                <div class="gift-unico-txt">
+                  <strong>Casa Club, um mês</strong>
+                  <span class="gift-unico-preco">R$88,90</span>
+                  <span>um platter brunch pra dois todo mês, a caixa do Casa na porta, 10% na loja, 1 ponto a cada R$1 e um lugar guardado nos encontros da casa.</span>
+                </div>
+              </div>
+              <p style="margin-top: 12px; color: var(--muted); font-size: 13.5px; line-height: 1.6">
+                é cobrança única, não vira assinatura tua nem da pessoa. E o tempo desse
+                mês conta como tempo de casa pra ela, igualzinho a quem assina.
+              </p>
+            </div>
+
+            <!-- 2. O bilhete -->
+            <div class="gift-step">
+              <span class="eyebrow coral">2 · o bilhete</span>
+              <h2 class="title md" style="margin-top: 8px">Deixa um recado (se quiser)</h2>
+              <p style="margin-top: 6px; color: var(--muted); font-size: 14px">
+                é o que a pessoa vai ler ao resgatar. Pode ser só um "te quero por perto".
+              </p>
+              <textarea
+                data-gift-msg
+                class="gift-msg"
+                rows="3"
+                maxlength="280"
+                placeholder="pra ti, que merece um café com calma 💛"
+              ></textarea>
+              <p class="gift-msg-count" data-gift-count>0/280</p>
+            </div>
+
+            <!-- Ação -->
+            <div class="gift-action">
+              <button type="button" class="btn solid block" data-gift-btn>presentear</button>
+              <p class="notice warn hidden" data-gift-note role="status" aria-live="polite"></p>
+              <p style="margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.6">
+                tu paga uma vez, no Pix ou no cartão, é cobrança única, não vira
+                assinatura tua. Depois de pago, teu código aparece pra tu entregar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Como funciona
+           =================================================================== -->
+      <section class="section paper2">
+        <div class="wrap">
+          <div class="reveal" style="max-width: 640px">
+            <span class="eyebrow green">simples assim</span>
+            <h2 class="title md" style="margin-top: 10px">Como o presente chega</h2>
+          </div>
+
+          <div class="card-grid cols-3" style="margin-top: 40px">
+            <article class="card reveal">
+              <span class="icon-badge coral"><i data-lucide="gift"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">Tu escolhe e paga</h3>
+              <p style="margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.65">
+                um mês do plano que tu quiser, com o teu bilhete junto. Pagamento único.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-badge gold"><i data-lucide="ticket"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">A gente te dá um código</h3>
+              <p style="margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.65">
+                do jeitinho CASA-XXXXXX. Tu entrega como quiser: mensagem, papelzinho,
+                abraço.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="icon-badge green"><i data-lucide="heart"></i></span>
+              <h3 class="title sm" style="margin-top: 16px">A pessoa resgata</h3>
+              <p style="margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.65">
+                na conta dela, em "tenho um presente". Ganha o plano por 30 dias, sem
+                cartão nem surpresa depois.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <!-- Estilos pontuais desta página -->
+    <style>
+      .gift-unico {
+        display: flex; gap: 14px; align-items: flex-start; margin-top: 16px;
+        padding: 18px 20px; border-radius: 16px;
+        background: color-mix(in srgb, var(--coral) 7%, var(--card));
+        border: 1.5px solid color-mix(in srgb, var(--coral) 30%, transparent);
+      }
+      .gift-unico-ico {
+        flex: none; display: grid; place-items: center; width: 42px; height: 42px;
+        border-radius: 12px; color: #fff; background: var(--coral);
+      }
+      .gift-unico-ico i, .gift-unico-ico svg { width: 20px; height: 20px }
+      .gift-unico-txt { display: flex; flex-direction: column; gap: 4px; min-width: 0 }
+      .gift-unico-txt strong { color: var(--ink); font-size: 16px; font-weight: 600 }
+      .gift-unico-txt span { color: var(--ink-2); font-size: 14px; line-height: 1.55 }
+      .gift-unico-preco { font-family: var(--font-titulo, inherit); font-size: 22px; color: var(--coral) }
+
+      .gift-wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px }
+      .gift-tiers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px }
+      @media (max-width: 560px) { .gift-tiers { grid-template-columns: 1fr } }
+      .gift-tier { position: relative; display: block; cursor: pointer }
+      .gift-tier input { position: absolute; opacity: 0; width: 0; height: 0 }
+      .gift-tier-card {
+        display: flex; flex-direction: column; gap: 8px;
+        padding: 20px; border-radius: 18px;
+        border: 1.5px solid color-mix(in srgb, var(--ink) 12%, transparent);
+        background: var(--card);
+        transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+        height: 100%;
+      }
+      .gift-tier:hover .gift-tier-card { border-color: color-mix(in srgb, var(--coral) 40%, transparent) }
+      .gift-tier input:focus-visible + .gift-tier-card { outline: 2px solid var(--coral); outline-offset: 2px }
+      .gift-tier input:checked + .gift-tier-card {
+        border-color: var(--coral);
+        box-shadow: 0 0 0 1.5px var(--coral), 0 10px 26px -18px color-mix(in srgb, var(--coral) 70%, transparent);
+        transform: translateY(-2px);
+      }
+      .gift-tier-name { font-family: var(--serif, var(--sans)); font-size: 17px; font-weight: 600; color: var(--ink) }
+      .gift-tier-price { font-size: 20px; font-weight: 700; color: var(--ink) }
+      .gift-tier-badge { position: absolute; top: -11px; right: 16px; z-index: 1 }
+      .gift-msg {
+        width: 100%; margin-top: 12px; padding: 14px 16px; border-radius: 14px;
+        border: 1.5px solid color-mix(in srgb, var(--ink) 12%, transparent);
+        background: var(--card); color: var(--ink); font-family: var(--sans);
+        font-size: 15px; line-height: 1.6; resize: vertical; min-height: 84px;
+      }
+      .gift-msg:focus-visible { outline: none; border-color: var(--coral); box-shadow: 0 0 0 1.5px var(--coral) }
+      .gift-msg-count { margin-top: 6px; text-align: right; color: var(--muted); font-size: 12px }
+      .gift-action { text-align: center }
+    </style>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

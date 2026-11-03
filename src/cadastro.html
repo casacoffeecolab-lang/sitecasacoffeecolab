@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Bem-vindo ao Casa, criar conta</title>
+    <meta
+      name="description"
+      content="Cria tua conta no Casa Coffee Colab e faz parte da gente do Casa, café, afeto e comida boa."
+    />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <main>
+      <section class="section auth-section">
+        <div class="wrap auth-wrap">
+          <div class="auth-head reveal">
+            <span class="eyebrow coral">Bem-vindo ao Casa</span>
+            <h1 class="title lg">Cria tua conta</h1>
+            <p class="lede">É rapidinho, depois é só chegar, sentar e ficar um pouco. 💛</p>
+          </div>
+
+          <!-- Formulário de cadastro -->
+          <form class="form wide card pad-lg auth-card reveal" data-cadastro-form novalidate>
+            <div class="field">
+              <label for="cad-nome">Como a gente te chama?</label>
+              <input
+                id="cad-nome"
+                name="nome"
+                type="text"
+                autocomplete="name"
+                required
+                class="inp"
+                placeholder="teu nome"
+              />
+            </div>
+
+            <div class="field">
+              <label for="cad-telefone">Telefone</label>
+              <input
+                id="cad-telefone"
+                name="telefone"
+                type="tel"
+                autocomplete="tel"
+                class="inp"
+                placeholder="(51) 9 9999-9999"
+              />
+            </div>
+
+            <!-- O aniversário é pedido no cadastro (e não depois) porque ele vale um
+                 brunch por ano, pra qualquer pessoa com conta: se fosse editável, dava
+                 pra mover a data pra hoje toda vez que desse vontade de vir. A trava de
+                 verdade é a trigger da 0051; aqui é só a porta. -->
+            <div class="field">
+              <label for="cad-nascimento">Teu aniversário</label>
+              <input
+                id="cad-nascimento"
+                name="nascimento"
+                type="date"
+                autocomplete="bday"
+                class="inp"
+                required
+              />
+              <p class="cad-hint">
+                no teu aniversário tem brunch por nossa conta, é por isso que a gente
+                pergunta. essa data se escreve uma vez só, então confere com carinho.
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="cad-email">E-mail</label>
+              <input
+                id="cad-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="inp"
+                placeholder="teu@email.com"
+              />
+            </div>
+
+            <div class="field">
+              <label for="cad-senha">Senha</label>
+              <div class="pw-wrap">
+                <input
+                  id="cad-senha"
+                  name="senha"
+                  type="password"
+                  autocomplete="new-password"
+                  required
+                  minlength="8"
+                  class="inp"
+                  placeholder="pelo menos 8 caracteres"
+                />
+                <button
+                  type="button"
+                  data-toggle-senha
+                  aria-label="mostrar senha"
+                  aria-pressed="false"
+                  class="pw-toggle"
+                >
+                  <i data-lucide="eye" class="h-5 w-5"></i>
+                </button>
+              </div>
+              <p class="hint">Pelo menos 8 caracteres, escolhe uma que só tu saiba.</p>
+            </div>
+
+            <div class="field">
+              <label for="cad-confirma">Confirma a senha</label>
+              <div class="pw-wrap">
+                <input
+                  id="cad-confirma"
+                  name="confirma"
+                  type="password"
+                  autocomplete="new-password"
+                  required
+                  minlength="8"
+                  class="inp"
+                  placeholder="a mesma senha, de novo"
+                />
+                <button
+                  type="button"
+                  data-toggle-senha
+                  aria-label="mostrar senha"
+                  aria-pressed="false"
+                  class="pw-toggle"
+                >
+                  <i data-lucide="eye" class="h-5 w-5"></i>
+                </button>
+              </div>
+            </div>
+
+            <p class="notice err hidden" data-form-erro aria-live="polite"></p>
+
+            <button type="submit" class="btn solid block lg">Criar minha conta</button>
+
+            <!-- O aceite mora aqui porque é aqui que a pessoa entrega os dados
+                 dela. Os dois documentos também ficam no rodapé de toda página. -->
+            <p class="auth-legal">
+              criando conta tu concorda com os
+              <a href="/termos" class="form-link">termos de uso</a> e com a
+              <a href="/privacidade" class="form-link">política de privacidade</a>.
+            </p>
+
+            <!-- "ou / continuar com o Google" — injetado pelo initGoogleAuth (app.js).
+                 É o mesmo botão do login: pro Supabase, entrar e criar conta com o
+                 Google são o mesmo caminho (a conta nasce na primeira vez). -->
+            <div class="google-slot" data-google-slot></div>
+
+            <p class="auth-foot">
+              já é da casa?
+              <a href="/login" class="form-link">entra por aqui</a>.
+            </p>
+          </form>
+
+          <!-- Estado "confirme seu e-mail" (revelado após o signup com confirm email ligado) -->
+          <div class="card pad-lg auth-card auth-confirm hidden" data-cadastro-sucesso>
+            <span class="icon-badge lg coral">
+              <i data-lucide="mail"></i>
+            </span>
+            <h2 class="title md">Confirma teu e-mail</h2>
+            <p class="lede">
+              A gente mandou um link de confirmação pra
+              <strong data-email-alvo>teu e-mail</strong>.
+              Dá uma olhada na caixa de entrada (e no spam, vai que) e clica no link pra ativar
+              tua conta.
+            </p>
+            <a href="/login" class="btn ghost">Ir pro login</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <!-- Estilos pontuais desta página (container estreito do formulário de auth) -->
+    <style>
+      .cad-hint { margin-top: 6px; color: var(--muted); font-size: 12.5px; line-height: 1.5 }
+
+      .auth-wrap { max-width: 460px; padding: 0 20px }
+      .auth-head { text-align: center }
+      .auth-head .lede { margin-left: auto; margin-right: auto }
+      .auth-card { margin-top: 32px; text-align: initial }
+      .auth-confirm { text-align: center }
+      .auth-confirm .icon-badge { margin: 0 auto }
+      .auth-confirm .title { margin-top: 18px }
+      .auth-confirm .lede { margin-left: auto; margin-right: auto }
+      .auth-confirm .lede strong { color: var(--ink) }
+      .auth-confirm .btn { margin-top: 22px }
+      .auth-foot { margin-top: 4px; text-align: center; font-size: 13.5px; color: var(--muted) }
+      .auth-legal { margin-top: 12px; text-align: center; font-size: 12.5px; line-height: 1.7; color: var(--muted) }
+      .auth-legal .form-link { font-size: inherit }
+    </style>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

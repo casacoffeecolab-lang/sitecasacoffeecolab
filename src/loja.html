@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>A loja do Casa, Casa Coffee Colab</title>
+    <meta
+      name="description"
+      content="Vestuário, acessórios e café em grão do Casa Coffee Colab. Leva junto um pedacinho da casa."
+    />
+
+    <!-- Card de compartilhamento — ver o comentário longo no home.html. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Casa Coffee Colab" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="A loja do Casa" />
+    <meta property="og:description" content="Um pedacinho da casa pra levar junto." />
+    <meta property="og:url" content="https://casacoffeecolab.vercel.app/loja" />
+    <meta property="og:image" content="https://casacoffeecolab.vercel.app/fotos/o-casa-fachada.jpg" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    <meta property="og:image:alt" content="A fachada do Casa na Hamburgo Velho, com mesas na calçada" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <main>
+      <!-- ===================================================================
+           CABEÇALHO — catálogo da loja (paper, sem hero — o header já entra
+           sólido aqui, mesmo mecanismo das páginas internas sem imagem).
+           =================================================================== -->
+      <section class="page-head">
+        <div class="wrap">
+          <div class="reveal">
+            <span class="eyebrow">Loja Casa</span>
+            <h1 class="title lg">A loja do Casa</h1>
+            <p class="lede">
+              Vestuário, acessórios e café em grão, feitos com afeto pra levar junto, no teu ritmo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           FICOU PRA DEPOIS — a tirinha de desejos, preenchida pós-render pra
+           quem está logado (initLojaDesejos). Fica escondida sem desejos /
+           deslogado / sem a migration 0029.
+           =================================================================== -->
+      <section class="section tight loja-desejos" data-loja-desejos hidden aria-label="Ficou pra depois">
+        <div class="wrap">
+          <div class="ld-head reveal">
+            <span class="ld-eyebrow"><i data-lucide="bookmark" aria-hidden="true"></i> ficou pra depois</span>
+            <p class="ld-sub">o que tu guardou pra levar num outro dia.</p>
+          </div>
+          <div class="ld-chips" data-ld-chips></div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           BUSCA + ORDENAÇÃO + FILTRO + GRID — tudo é preenchido/ligado pelo
+           app.js (initCatalogPage) dentro de [data-catalog-grid]; o estado
+           vazio [data-catalog-empty] some assim que há resultados visíveis.
+           =================================================================== -->
+      <section class="section tight" data-rastro-secao="a vitrine da loja">
+        <div class="wrap">
+          <div class="loja-toolbar reveal">
+            <div class="field loja-busca">
+              <label for="loja-busca" class="sr-only">Buscar na loja</label>
+              <i data-lucide="search" aria-hidden="true"></i>
+              <input
+                type="search"
+                id="loja-busca"
+                data-catalog-search
+                autocomplete="off"
+                placeholder="procura um café, uma caneca…"
+              />
+            </div>
+            <div class="field loja-ordem">
+              <label for="loja-ordem" class="sr-only">Ordenar por</label>
+              <select id="loja-ordem" data-catalog-sort>
+                <option value="casa">do jeito da casa</option>
+                <option value="preco-asc">preço, do menor pro maior</option>
+                <option value="preco-desc">preço, do maior pro menor</option>
+                <option value="nome">nome, de A a Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div
+            class="reveal"
+            style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px"
+            role="group"
+            aria-label="Filtrar por categoria"
+          >
+            <button type="button" class="filtro" data-filter="all" data-categoria="all" aria-pressed="true">
+              Todos
+            </button>
+            <button type="button" class="filtro" data-filter="vestuario" data-categoria="vestuario" aria-pressed="false">
+              Vestuário
+            </button>
+            <button type="button" class="filtro" data-filter="acessorios" data-categoria="acessorios" aria-pressed="false">
+              Acessórios
+            </button>
+            <button type="button" class="filtro" data-filter="cafe_grao" data-categoria="cafe_grao" aria-pressed="false">
+              Café em grão
+            </button>
+          </div>
+
+          <p class="loja-contagem" data-catalog-count role="status" aria-live="polite"></p>
+
+          <!-- Grid preenchido pelo app.js (initCatalogPage) -->
+          <div data-catalog-grid class="card-grid cols-3 reveal" style="margin-top: 18px"></div>
+
+          <!-- Estado vazio (some quando há resultados) -->
+          <div data-catalog-empty class="empty hidden">
+            <p class="e-title">nada por aqui ainda</p>
+            <p>mas fica tranquilo, logo a gente traz novidade pra vitrine.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

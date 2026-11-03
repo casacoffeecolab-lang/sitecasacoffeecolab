@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Não achamos essa página, Casa Coffee Colab</title>
+    <meta name="description" content="Esse endereço não existe por aqui. Volta pra casa, tem café quente." />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <main>
+      <section class="section">
+        <div class="wrap">
+          <div
+            class="reveal"
+            style="max-width: 560px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px"
+          >
+            <span class="icon-badge lg coral">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <polygon points="15.9 8.1 14 14 8.1 15.9 10 10 15.9 8.1" />
+              </svg>
+            </span>
+            <span class="eyebrow coral">Página não encontrada</span>
+
+            <h1 class="title lg">esse endereço a gente não achou</h1>
+            <p class="lede" style="max-width: 48ch">
+              pode ser um link velho, ou uma letra fora do lugar no caminho. acontece
+              com todo mundo. o Casa segue aqui do lado, com café quente.
+            </p>
+
+            <!-- O caminho tentado é preenchido pelo app.js (init404Page), escapado.
+                 Fica escondido se não houver o que mostrar. -->
+            <p class="erro-caminho" data-404-caminho hidden></p>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 10px">
+              <a href="/home" class="btn solid">voltar pra casa</a>
+              <a href="/cardapio" class="btn ghost">ver o cardápio</a>
+              <a href="/o-casa" class="btn ghost">conhecer o Casa</a>
+            </div>
+
+            <p style="margin-top: 2px; color: var(--muted); font-size: 14px">
+              se o link veio da gente e tá quebrado, conta pra nós? 💛
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

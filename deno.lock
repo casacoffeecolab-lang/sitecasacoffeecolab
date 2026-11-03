@@ -1,0 +1,22 @@
+{
+  "version": "5",
+  "remote": {
+    "https://esm.sh/@supabase/supabase-js@2.110.6": "c7330c52c7c1b6215fd602626401ab0ff93bc7a7b75c77ffa80497de1a1733ee"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@fontsource/caveat@^5.2.8",
+        "npm:@fontsource/fraunces@^5.2.9",
+        "npm:@fontsource/sora@^5.2.8",
+        "npm:@supabase/supabase-js@^2.110.6",
+        "npm:autoprefixer@^10.5.3",
+        "npm:lucide@^1.24.0",
+        "npm:postcss@^8.5.19",
+        "npm:supabase@^2.109.1",
+        "npm:tailwindcss@^3.4.19",
+        "npm:vite@^8.1.4"
+      ]
+    }
+  }
+}

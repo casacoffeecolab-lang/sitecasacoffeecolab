@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Gente do Casa</title>
+    <meta name="description" content="Um cantinho de quem faz parte do Casa." />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <section class="section gente-sec">
+      <div class="wrap">
+        <!-- Cartão público (ou estado vazio) renderizado pelo app.js (initGentePage) -->
+        <div data-gente-root>
+          <div class="gente-carregando" data-gente-loading>
+            <span class="gente-spin" aria-hidden="true"></span>
+            <p>abrindo o cantinho…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

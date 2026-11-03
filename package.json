@@ -1,0 +1,33 @@
+{
+  "name": "site-casa-coffee-colab",
+  "version": "0.1.0",
+  "description": "Site do Casa Coffee Colab — café-casa de encontros em Novo Hamburgo/RS",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "security-check": "node scripts/security-check.mjs",
+    "avatares-orfaos": "node scripts/avatares-orfaos.mjs",
+    "fotos-orfas": "node scripts/fotos-orfas.mjs",
+    "criar-adm-master": "node scripts/criar-adm-master.mjs",
+    "spotify-token": "node scripts/spotify-token.mjs"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "autoprefixer": "^10.5.3",
+    "postcss": "^8.5.19",
+    "supabase": "^2.109.1",
+    "tailwindcss": "^3.4.19",
+    "vite": "^8.1.4"
+  },
+  "dependencies": {
+    "@fontsource/caveat": "^5.2.8",
+    "@fontsource/fraunces": "^5.2.9",
+    "@fontsource/sora": "^5.2.8",
+    "@supabase/supabase-js": "^2.110.6",
+    "lucide": "^1.24.0"
+  }
+}

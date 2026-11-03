@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>E-mail confirmado, Casa Coffee Colab</title>
+    <meta name="description" content="Teu e-mail foi confirmado no Casa Coffee Colab. Bem-vindo à gente do Casa." />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <section class="section">
+      <div class="wrap">
+        <!-- Preenchido pelo app.js (initAuthConfirmadoPage) depois que o
+             supabase-js detecta a sessão na URL. Estado inicial gentil. -->
+        <div data-auth-confirmado-root>
+          <p class="decor text-3xl">só um instante</p>
+          <p class="mt-2" style="color: var(--muted)">confirmando teu e-mail…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Planos, Casa Coffee Colab</title>
+    <meta
+      name="description"
+      content="Faz parte do Casa: assinatura com desconto na loja, pontos de fidelidade e conquistas pra desbloquear. No teu ritmo, cancela quando quiser."
+    />
+
+    <!-- Card de compartilhamento — ver o comentário longo no home.html. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Casa Coffee Colab" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Clube Casa" />
+    <meta property="og:description" content="Fazer parte muda tudo." />
+    <meta property="og:url" content="https://casacoffeecolab.vercel.app/planos" />
+    <meta property="og:image" content="https://casacoffeecolab.vercel.app/fotos/o-casa-fachada.jpg" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    <meta property="og:image:alt" content="A fachada do Casa na Hamburgo Velho, com mesas na calçada" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <main>
+      <!-- ===================================================================
+           Intro
+           =================================================================== -->
+      <section class="page-head">
+        <div class="wrap">
+          <div class="reveal">
+            <span class="eyebrow">fica um pouco, sempre</span>
+            <h1 class="title lg">Faz parte do Casa</h1>
+            <div class="rule coral"></div>
+            <p class="lede">
+              uma assinatura só, pra quem já sente o Casa como um segundo endereço. Tu ganha
+              desconto na loja, junta pontos e desbloqueia conquistas pelo caminho. E quanto
+              mais tempo tu fica, mais alto tu chega na casa. Sem pegadinha, cancela quando
+              quiser.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           A assinatura (uma só) + a jornada das categorias
+           =================================================================== -->
+      <!-- id="planos": âncora de quem chega de fora já querendo assinar (o botão do
+           Mural do Casa, no /o-casa). A âncora e o arquivo continuam se chamando
+           "planos" mesmo agora que o plano é um só: mudar o endereço quebraria link
+           antigo em e-mail e successUrl de checkout já emitido. -->
+      <section class="section" id="planos">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow coral">O clube</span>
+              <h2 class="title md" style="margin-top: 10px">Uma assinatura, e o resto vem com o tempo</h2>
+            </div>
+          </div>
+
+          <div class="clube-oferta">
+            <article class="plan featured reveal clube-plano">
+              <span class="tag gold plan-badge">o Casa Club</span>
+              <span class="eyebrow">assinatura do Casa</span>
+              <p class="plan-name">Fazer parte muda tudo</p>
+              <p class="plan-price">R$88,90<span class="per">/mês</span></p>
+              <div class="plan-chips">
+                <span class="tag coral">10% na loja</span>
+                <span class="tag green">1 ponto por R$1</span>
+              </div>
+              <ul class="feature-list">
+                <li>um platter brunch por nossa conta todo mês, que serve duas pessoas</li>
+                <li>uma caixa do Casa na tua porta, todo mês</li>
+                <li>10% de desconto na nossa loja</li>
+                <li>1 ponto a cada R$1, pra trocar por coisa boa</li>
+                <li>teu recado no Mural do Casa e teu cantinho em /gente</li>
+                <li>lugar guardado nos encontros da casa</li>
+                <li>conquistas pra desbloquear pelo caminho</li>
+              </ul>
+              <button type="button" data-assinar data-tier="bronze" class="btn solid block">entra, senta, fica um pouco</button>
+            </article>
+
+            <div class="clube-jornada reveal">
+              <span class="eyebrow green">a tua jornada</span>
+              <h3 class="title sm" style="margin-top: 10px">tu não sobe pagando, tu sobe ficando</h3>
+              <p style="margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.65">
+                todo mundo paga o mesmo e recebe o mesmo. o que muda com o tempo é como a
+                casa te chama, e o tempo fica guardado contigo: se um dia tu precisar
+                pausar, tua contagem espera por ti onde parou.
+              </p>
+
+              <ol class="jornada">
+                <li class="jornada-item">
+                  <span class="jornada-marco">agora</span>
+                  <strong>Vizinho de Sempre</strong>
+                  <em>tu chegou, e já faz parte.</em>
+                </li>
+                <li class="jornada-item">
+                  <span class="jornada-marco">3 meses</span>
+                  <strong>Frequentador</strong>
+                  <em>o Casa entrou na tua rotina.</em>
+                </li>
+                <li class="jornada-item">
+                  <span class="jornada-marco">6 meses</span>
+                  <strong>Gente do Casa</strong>
+                  <em>tu já é gente daqui.</em>
+                </li>
+                <li class="jornada-item">
+                  <span class="jornada-marco">1 ano</span>
+                  <strong>Alma do Casa</strong>
+                  <em>o que era visita virou história.</em>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Área de aviso/erro do checkout (preenchida pelo app.js quando precisa) -->
+          <p class="notice warn hidden" data-assinar-note role="status" aria-live="polite"></p>
+
+          <p style="margin-top: 22px; color: var(--muted); font-size: 13.5px; line-height: 1.6">
+            A assinatura é no cartão e renova sozinha todo mês, cancela quando quiser.
+            (Na loja, tu paga com Pix ou cartão.)
+          </p>
+
+          <a href="/presentear" class="gift-cta reveal" aria-label="Presenteia um mês do Casa">
+            <span class="gift-cta-icon" aria-hidden="true"><i data-lucide="gift"></i></span>
+            <span class="gift-cta-text">
+              <strong>Presenteia um mês do Casa</strong>
+              <span>dá o clube pra quem tu gosta, cobrança única, sem virar assinatura tua.</span>
+            </span>
+            <span class="gift-cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Como funciona a fidelidade
+           =================================================================== -->
+      <section class="section paper2">
+        <div class="wrap">
+          <div class="reveal" style="max-width: 640px">
+            <span class="eyebrow green">cada visita conta</span>
+            <h2 class="title md" style="margin-top: 10px">Como os pontos funcionam</h2>
+            <p class="lede">
+              simples que nem pedir o de sempre: tu usa o Casa, junta ponto, e troca por
+              coisa boa.
+            </p>
+          </div>
+
+          <div class="card-grid cols-3" style="margin-top: 40px">
+            <article class="card reveal">
+              <span class="icon-badge green">
+                <i data-lucide="star"></i>
+              </span>
+              <h3 class="title sm" style="margin-top: 16px">Ganha 1 ponto a cada R$1</h3>
+              <p style="margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.65">
+                a conta é uma só e é fácil de guardar: R$1 vira 1 ponto, em qualquer
+                categoria. Por enquanto contam a loja e a tua mensalidade, o consumo aqui
+                no balcão entra assim que a nossa caixa souber conversar com o site.
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <span class="icon-badge green">
+                <i data-lucide="coffee"></i>
+              </span>
+              <h3 class="title sm" style="margin-top: 16px">Junta no teu ritmo</h3>
+              <p style="margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.65">
+                sem prazo apertado pra queimar ponto. Eles ficam te esperando, igual a
+                gente.
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <span class="icon-badge green">
+                <i data-lucide="gift"></i>
+              </span>
+              <h3 class="title sm" style="margin-top: 16px">Resgata em coisa boa</h3>
+              <p style="margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.65">
+                produto da loja, mimo de um parceiro local do bairro, ou um cupom pra
+                usar aqui. Tu escolhe.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Conquistas / emblemas (teaser)
+           =================================================================== -->
+      <section class="section">
+        <div class="wrap">
+          <div class="reveal" style="max-width: 640px">
+            <span class="eyebrow gold">um agrado pela jornada</span>
+            <h2 class="title md" style="margin-top: 10px">Conquistas do Casa</h2>
+            <p class="lede">
+              usando o Casa tu vai desbloqueando emblemas, pequenas lembranças de que
+              esse lugar também é teu. Aqui vão alguns pra tu conhecer:
+            </p>
+          </div>
+
+          <div class="card-grid achv-grid" style="margin-top: 40px">
+            <article class="card reveal" style="text-align: center">
+              <span class="icon-badge coral" style="margin: 0 auto">
+                <i data-lucide="coffee"></i>
+              </span>
+              <h3 class="title sm" style="margin-top: 16px">Primeira Xícara</h3>
+              <p style="margin-top: 6px; color: var(--muted); font-size: 12.5px">o teu primeiro café aqui.</p>
+            </article>
+
+            <article class="card reveal" style="text-align: center">
+              <span class="icon-badge gold" style="margin: 0 auto">
+                <i data-lucide="sunrise"></i>
+              </span>
+              <h3 class="title sm" style="margin-top: 16px">Manhã de Sempre</h3>
+              <p style="margin-top: 6px; color: var(--muted); font-size: 12.5px">virou rotina passar de manhã.</p>
+            </article>
+
+            <article class="card reveal" style="text-align: center">
+              <span class="icon-badge green" style="margin: 0 auto">
+                <i data-lucide="heart"></i>
+              </span>
+              <h3 class="title sm" style="margin-top: 16px">Gente do Casa</h3>
+              <p style="margin-top: 6px; color: var(--muted); font-size: 12.5px">tu já é gente daqui.</p>
+            </article>
+
+            <article class="card reveal" style="text-align: center">
+              <span class="icon-badge olive" style="margin: 0 auto">
+                <i data-lucide="award"></i>
+              </span>
+              <h3 class="title sm" style="margin-top: 16px">Alma do Casa</h3>
+              <p style="margin-top: 6px; color: var(--muted); font-size: 12.5px">o coração desse lugar bate contigo.</p>
+            </article>
+
+            <article class="card reveal" style="text-align: center">
+              <span class="icon-badge" style="margin: 0 auto">
+                <i data-lucide="lock"></i>
+              </span>
+              <h3 class="title sm" style="margin-top: 16px; color: var(--muted)">e mais por vir</h3>
+              <p style="margin-top: 6px; color: var(--muted); font-size: 12.5px">tem conquista escondida pra tu achar.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <!-- Estilos pontuais desta página (badge do plano em destaque, chips, grid de conquistas) -->
+    <style>
+      .plan-badge { position: absolute; top: -13px; left: 28px }
+
+      /* A oferta: o cartão da assinatura e a jornada lado a lado. Uma coluna só
+         no celular, com o cartão primeiro (é ele que responde "quanto custa"). */
+      .clube-oferta { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 28px; align-items: start }
+      .clube-plano { position: relative }
+      .clube-jornada { padding-top: 6px }
+      @media (max-width: 900px) { .clube-oferta { grid-template-columns: 1fr; gap: 34px } }
+
+      /* A jornada: uma linha do tempo vertical, um marco por categoria. A linha é
+         um ::before da lista inteira, e cada item põe a bolinha por cima dela. */
+      .jornada { position: relative; margin-top: 22px; padding-left: 26px; list-style: none; display: grid; gap: 20px }
+      .jornada::before {
+        content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 2px;
+        background: linear-gradient(to bottom, var(--coral), color-mix(in srgb, var(--green) 70%, transparent));
+      }
+      .jornada-item { position: relative; display: grid; gap: 2px }
+      .jornada-item::before {
+        content: ''; position: absolute; left: -26px; top: 5px; width: 12px; height: 12px;
+        border-radius: 50%; background: var(--card); border: 2px solid var(--coral);
+      }
+      .jornada-marco { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted) }
+      .jornada-item strong { font-family: var(--serif); font-size: 17px; color: var(--ink) }
+      .jornada-item em { font-style: normal; font-size: 14px; color: var(--ink-2); line-height: 1.55 }
+
+      .plan-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px }
+      .plan .feature-list { flex: 1 }
+      .plan > .btn { margin-top: 22px }
+      .card-grid.achv-grid { grid-template-columns: repeat(5, 1fr) }
+      @media (max-width: 900px) { .card-grid.achv-grid { grid-template-columns: repeat(3, 1fr) } }
+      @media (max-width: 560px) { .card-grid.achv-grid { grid-template-columns: repeat(2, 1fr) } }
+
+      /* CTA de presente em destaque */
+      .gift-cta {
+        display: flex; align-items: center; gap: 16px; margin-top: 26px;
+        padding: 18px 22px; border-radius: 18px; text-decoration: none;
+        background: color-mix(in srgb, var(--coral) 8%, var(--card));
+        border: 1.5px solid color-mix(in srgb, var(--coral) 32%, transparent);
+        transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+      }
+      .gift-cta:hover {
+        border-color: var(--coral); transform: translateY(-2px);
+        box-shadow: 0 16px 34px -22px color-mix(in srgb, var(--coral) 80%, #000);
+      }
+      .gift-cta-icon {
+        flex: none; display: grid; place-items: center; width: 46px; height: 46px;
+        border-radius: 13px; color: #fff; background: var(--coral);
+      }
+      .gift-cta-icon i, .gift-cta-icon svg { width: 22px; height: 22px }
+      .gift-cta-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px }
+      .gift-cta-text strong { color: var(--ink); font-size: 16px; font-weight: 600 }
+      .gift-cta-text span { color: var(--ink-2); font-size: 14px; line-height: 1.5 }
+      .gift-cta-arrow { flex: none; color: var(--coral); font-size: 20px; transition: transform 0.18s ease }
+      .gift-cta:hover .gift-cta-arrow { transform: translateX(4px) }
+      @media (max-width: 560px) { .gift-cta { flex-wrap: wrap } .gift-cta-arrow { display: none } }
+      @media (prefers-reduced-motion: reduce) { .gift-cta, .gift-cta-arrow { transition: none } }
+    </style>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

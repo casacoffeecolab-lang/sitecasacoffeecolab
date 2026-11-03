@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Teu clube, Casa Coffee Colab</title>
+    <meta name="description" content="Teu clube no Casa Coffee Colab: em que categoria tu está, quanto falta pra próxima e o que tu já pode trocar." />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body data-requires-auth>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <section class="section">
+      <div class="wrap" style="max-width: 920px">
+        <!-- Conteúdo injetado pelo app.js (initClubePage), depois do guard de auth. -->
+        <div data-clube-root>
+          <p style="text-align:center; color: var(--muted)">só um instante, vendo teu tempo de casa…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

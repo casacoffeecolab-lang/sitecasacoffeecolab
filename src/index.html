@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <!-- A home mora em /home. Este index só existe pra que a raiz "/"
+         (ex.: acessar pelo IP na rede) caia direto na home, em dev e em prod. -->
+    <meta http-equiv="refresh" content="0; url=/home" />
+    <title>Casa Coffee Colab</title>
+    <meta name="description" content="Slow coffee, good food, better days. Na Hamburgo Velho, Novo Hamburgo/RS." />
+
+    <!-- O mesmo card da home. Este arquivo precisa dele porque quem compartilha
+         o domínio pelado (casacoffeecolab.vercel.app) cai aqui, e o raspador do
+         WhatsApp lê o HTML sem seguir o redirect — sem estas tags, o link do
+         site chegaria como um bloco de texto sem foto. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Casa Coffee Colab" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Casa Coffee Colab" />
+    <meta property="og:description" content="Slow coffee, good food, better days." />
+    <meta property="og:url" content="https://casacoffeecolab.vercel.app/" />
+    <meta property="og:image" content="https://casacoffeecolab.vercel.app/fotos/o-casa-fachada.jpg" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    <meta property="og:image:alt" content="A fachada do Casa na Hamburgo Velho, com mesas na calçada" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      window.location.replace('/home');
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando pro Casa… <a href="/home">entra por aqui</a>.</p>
+  </body>
+</html>

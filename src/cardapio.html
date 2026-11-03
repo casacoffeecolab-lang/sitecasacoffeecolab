@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"
+    />
+    <title>Cardápio, Casa Coffee Colab</title>
+    <meta
+      name="description"
+      content="O cardápio do Casa Coffee Colab: brunch, toasts, croissant, confeitaria, métodos de café, matcha e drinks sem álcool."
+    />
+
+    <!-- Card de compartilhamento — ver o comentário longo no home.html. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Casa Coffee Colab" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Cardápio" />
+    <meta property="og:description" content="Brunch, toasts, croissant, confeitaria e o café da casa." />
+    <meta property="og:url" content="https://casacoffeecolab.vercel.app/cardapio" />
+    <meta property="og:image" content="https://casacoffeecolab.vercel.app/fotos/o-casa-fachada.jpg" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    <meta property="og:image:alt" content="A fachada do Casa na Hamburgo Velho, com mesas na calçada" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <!-- Header injetado pelo app.js -->
+    <div id="site-header"></div>
+
+    <main>
+      <!-- ===================================================================
+           Abertura — cabeçalho de página simples (paper, sem hero escuro;
+           ver .page-head em styles.css)
+           =================================================================== -->
+      <section class="page-head">
+        <div class="wrap">
+          <div class="reveal">
+            <span class="eyebrow">O que a casa serve</span>
+            <h1 class="title lg">Cardápio</h1>
+            <div class="rule coral"></div>
+            <p class="lede">
+              O mesmo cardápio que tu pega na mesa, com as mesmas seções e os
+              mesmos preços. Chega, senta e fica um pouco.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           NAVEGAÇÃO RÁPIDA — tirinha que gruda abaixo do header e leva direto
+           pra seção. Os chips são montados pela initCardapioNav a partir das
+           próprias seções do cardápio, por isso a tirinha nasce hidden.
+           =================================================================== -->
+      <nav class="cardapio-nav" data-cardapio-nav hidden aria-label="Seções do cardápio">
+        <div class="wrap">
+          <div class="cnav-chips" data-cnav-chips></div>
+        </div>
+      </nav>
+
+      <!-- ===================================================================
+           TEUS FAVORITOS — preenchido pós-render pra quem está logado
+           (initCardapioFavoritos). Fica escondido sem favoritos / deslogado /
+           sem a migration 0027.
+           =================================================================== -->
+      <section class="section tight cardapio-favoritos" data-cardapio-favoritos hidden aria-label="Teus favoritos">
+        <div class="wrap">
+          <div class="cf-head reveal">
+            <span class="cf-eyebrow"><i data-lucide="heart" aria-hidden="true"></i> teus favoritos</span>
+            <p class="cf-sub">o teu de sempre, num toque.</p>
+          </div>
+          <div class="cf-chips" data-cf-chips></div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           A ORDEM DAS SEÇÕES É A DO CARDÁPIO FÍSICO: primeiro a página da
+           comida (coluna da esquerda inteira, depois a da direita), depois a
+           página das bebidas, do mesmo jeito. Mexeu no cardápio impresso, mexe
+           aqui — e os chips lá de cima se montam sozinhos a partir daqui.
+
+           Uma exceção: os ADICIONAIS fecham a página, em vez de virem no meio
+           da comida como no papel. Eles não são um prato, são o que se soma a
+           um, então no papel funcionam como quadro lateral e numa página que
+           só rola atrapalhavam a fila.
+
+           Clássicos do Casa
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-gold" aria-labelledby="classicos-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge gold"><i data-lucide="sandwich" aria-hidden="true"></i></span>
+              <h2 id="classicos-title" class="title md">Clássicos do Casa</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Pão de queijo</h3>
+                <p class="mi-desc">feito com um blend de queijos, recheado e assado na hora</p>
+              </div>
+              <span class="mi-price">R$ 16,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Misto quente</h3>
+                <p class="mi-desc">pão de brioche tostado na manteiga, com presunto e queijo</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Queijo quente</h3>
+                <p class="mi-desc">pão de brioche tostado na manteiga, com um blend de queijos</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Empanadas</h3>
+                <p class="mi-desc">empanada argentina recheada de carne, azeitonas e ovos</p>
+              </div>
+              <span class="mi-price">R$ 14,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Brunch
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-green" aria-labelledby="brunch-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge green"><i data-lucide="egg-fried" aria-hidden="true"></i></span>
+              <h2 id="brunch-title" class="title md">Brunch</h2>
+            </div>
+          </div>
+          <p class="sec-nota reveal">consulta a gente sobre as opções veganas.</p>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Crepioca</h3>
+                <p class="mi-desc">
+                  ovo, tapioca e recheio, finalizado com cebolete. escolhe até 3
+                  recheios: mussarela, carne de panela, cogumelos salteados,
+                  frango, presunto, tomate assado, tomate cereja, bacon, mix de
+                  folhas, rúcula, cebolete ou pesto
+                </p>
+              </div>
+              <span class="mi-price">R$ 38,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Tuskany Morning</h3>
+                <p class="mi-desc">toast de pão levain, ovos cremosos, tomates italianos assados, mussarela de búfala e pesto</p>
+              </div>
+              <span class="mi-price">R$ 42,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Avo Brunch</h3>
+                <p class="mi-desc">toast de pão levain, ovos cremosos, creme de avocado e bacon</p>
+              </div>
+              <span class="mi-price">R$ 48,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Salmon Brunch</h3>
+                <p class="mi-desc">toast de pão levain, ovos cremosos, salmão gravlax e creme de avocado. salmão exclusividade Casa Coffee</p>
+              </div>
+              <span class="mi-price">R$ 58,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Sunny Honey Pancakes</h3>
+                <p class="mi-desc">panquecas americanas, ovos cremosos, bacon crocante, mel e manteiga</p>
+              </div>
+              <span class="mi-price">R$ 42,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Mini Brunch</h3>
+                <p class="mi-desc">sugestão kids: pão levain tostado ou mini panquecas (tu escolhe), ovos cremosos, geleia do Casa e bacon</p>
+              </div>
+              <span class="mi-price">R$ 38,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Platter Brunch</h3>
+                <p class="mi-desc">sugestão pra compartilhar: fatias de pão levain tostado, mini panquecas, parma, figo, mel saborizado, geleia do Casa, queijo brie e creme de gorgonzola</p>
+              </div>
+              <span class="mi-price">R$ 88,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Bagel
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-coral" aria-labelledby="bagel-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge coral"><i data-lucide="donut" aria-hidden="true"></i></span>
+              <h2 id="bagel-title" class="title md">Bagel</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Clássico</h3>
+                <p class="mi-desc">bagel tostado, acompanha cream cheese ou manteiga</p>
+              </div>
+              <span class="mi-price">R$ 22,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Salmon Bagel</h3>
+                <p class="mi-desc">pão americano, cream cheese, pepino, salmão gravlax e picles de cebola roxa. salmão exclusividade Casa Coffee</p>
+              </div>
+              <span class="mi-price">R$ 56,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">American Bagel</h3>
+                <p class="mi-desc">pão americano, cream cheese, ovos cremosos, bacon e cebolete</p>
+              </div>
+              <span class="mi-price">R$ 38,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Croissant
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-blue" aria-labelledby="croissant-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge blue"><i data-lucide="croissant" aria-hidden="true"></i></span>
+              <h2 id="croissant-title" class="title md">Croissant</h2>
+            </div>
+          </div>
+          <p class="sec-nota reveal">croissant tipo francesa, feito com manteiga de verdade.</p>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Clássico</h3>
+                <p class="mi-desc">escolhe cream cheese, manteiga ou geleia</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Presunto + queijo</h3>
+              </div>
+              <span class="mi-price">R$ 34,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Parma + brie + rúcula</h3>
+              </div>
+              <span class="mi-price">R$ 44,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Salmon Croissant</h3>
+                <p class="mi-desc">croissant, cream cheese e salmão gravlax. salmão exclusividade Casa Coffee</p>
+              </div>
+              <span class="mi-price">R$ 68,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Sanduíches
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-gold" aria-labelledby="sanduiches-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge gold"><i data-lucide="sandwich" aria-hidden="true"></i></span>
+              <h2 id="sanduiches-title" class="title md">Sanduíches</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Croque madame</h3>
+                <p class="mi-desc">pão brioche, queijo, presunto, bechamel e ovo frito</p>
+              </div>
+              <span class="mi-price">R$ 38,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Carne de panela</h3>
+                <p class="mi-desc">pão baguete, carne de panela, gorgonzola, rúcula e aioli</p>
+              </div>
+              <span class="mi-price">R$ 48,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Presunto + queijo</h3>
+                <p class="mi-desc">pão baguete, presunto, queijo, tomate assado, aioli e pesto</p>
+              </div>
+              <span class="mi-price">R$ 32,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Parma + pesto</h3>
+                <p class="mi-desc">pão baguete, parma, búfala e pesto</p>
+              </div>
+              <span class="mi-price">R$ 48,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Toasts
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-green" aria-labelledby="toasts-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge green"><i data-lucide="wheat" aria-hidden="true"></i></span>
+              <h2 id="toasts-title" class="title md">Toasts</h2>
+            </div>
+          </div>
+          <p class="sec-nota reveal">consulta a gente sobre as opções veganas e sem glúten.</p>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Avocado Morning</h3>
+                <p class="mi-desc">pão levain tostado, creme de avocado e ovos cremosos</p>
+              </div>
+              <span class="mi-price">R$ 32,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Caprese</h3>
+                <p class="mi-desc">pão levain tostado, búfala, tomate assado e pesto</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Funghi &amp; Eggs</h3>
+                <p class="mi-desc">pão levain tostado, ovos cremosos, cogumelo salteado e cebolete</p>
+              </div>
+              <span class="mi-price">R$ 38,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">American Toast</h3>
+                <p class="mi-desc">pão levain tostado, ovos cremosos e bacon crocante</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Fig &amp; Parma</h3>
+                <p class="mi-desc">pão levain tostado, queijo brie, rúcula baby, parma, figo e molho especial</p>
+              </div>
+              <span class="mi-price">R$ 38,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Confeitaria
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-coral" aria-labelledby="confeitaria-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge coral"><i data-lucide="cake-slice" aria-hidden="true"></i></span>
+              <h2 id="confeitaria-title" class="title md">Confeitaria</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Bolo Gisele</h3>
+                <p class="mi-desc">bolo de cenoura servido com brigadeiro de panela quentinho</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Petit Lab</h3>
+                <p class="mi-desc">mini naked cake com camadas perfeitas. consulta os sabores do dia</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Cheesecolab</h3>
+                <p class="mi-desc">massa sequinha recheada com torta basca e cobertura, de frutas vermelhas ou doce de leite</p>
+              </div>
+              <span class="mi-price">R$ 35,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Cakelab</h3>
+                <p class="mi-desc">bolos recheados feitos na nossa confeitaria. consulta os sabores do dia</p>
+              </div>
+              <span class="mi-price">R$ 35,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Cookie gourmet</h3>
+                <p class="mi-desc">consulta os sabores do dia</p>
+              </div>
+              <span class="mi-price">R$ 18,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Brownie</h3>
+                <p class="mi-desc">brownie chocolatudo, a gente recomenda pedir com adicional de sorvete</p>
+              </div>
+              <span class="mi-price">R$ 22,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Lab Rolls</h3>
+                <p class="mi-desc">cinnamon roll com coberturas deliciosas feitas aqui no Casa. consulta os sabores do dia</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           A partir daqui é a segunda página do impresso: as bebidas.
+           Métodos
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-blue" aria-labelledby="metodos-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge blue"><i data-lucide="coffee" aria-hidden="true"></i></span>
+              <h2 id="metodos-title" class="title md">Métodos</h2>
+            </div>
+          </div>
+          <p class="sec-nota reveal">os cafés passados da casa.</p>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Prensa francesa</h3>
+                <p class="mi-desc">300ml ou 500ml</p>
+              </div>
+              <span class="mi-price">R$ 18,00 / 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Hario V60</h3>
+                <p class="mi-desc">300ml ou 500ml</p>
+              </div>
+              <span class="mi-price">R$ 18,00 / 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Drip Coffee Bunn</h3>
+                <p class="mi-desc">café passado</p>
+              </div>
+              <span class="mi-price">R$ 12,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Puristas
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-gold" aria-labelledby="puristas-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge gold"><i data-lucide="coffee" aria-hidden="true"></i></span>
+              <h2 id="puristas-title" class="title md">Puristas</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Espresso</h3>
+                <p class="mi-desc">50ml</p>
+              </div>
+              <span class="mi-price">R$ 12,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Carioca</h3>
+                <p class="mi-desc">70ml</p>
+              </div>
+              <span class="mi-price">R$ 12,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Elaborados — daqui em diante aparecem os três preços do leite. A
+           ordem (integral, zero lactose, vegetal) fica na nota da seção em vez
+           de repetir em cada linha, como no impresso.
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-green" aria-labelledby="elaborados-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge green"><i data-lucide="milk" aria-hidden="true"></i></span>
+              <h2 id="elaborados-title" class="title md">Elaborados</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Latte</h3>
+                <p class="mi-desc">espresso e leite vaporizado</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 14</b><b>R$ 16</b><b>R$ 18</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Cappuccino italiano</h3>
+                <p class="mi-desc">ristretto e leite vaporizado</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 16</b><b>R$ 18</b><b>R$ 20</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Macchiato</h3>
+                <p class="mi-desc">espresso e espuma de leite</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 16</b><b>R$ 18</b><b>R$ 20</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Caramel Macchiato</h3>
+                <p class="mi-desc">espresso, caramelo e leite vaporizado</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 18</b><b>R$ 20</b><b>R$ 22</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Vanilla Latte</h3>
+                <p class="mi-desc">espresso, baunilha e leite vaporizado</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 18</b><b>R$ 20</b><b>R$ 22</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Mocha</h3>
+                <p class="mi-desc">espresso, calda de chocolate 50% e leite vaporizado</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 18</b><b>R$ 20</b><b>R$ 22</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Choco quente</h3>
+                <p class="mi-desc">chocolate quente cremoso</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Cafés gelados
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-coral" aria-labelledby="gelados-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge coral"><i data-lucide="snowflake" aria-hidden="true"></i></span>
+              <h2 id="gelados-title" class="title md">Cafés gelados</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Iced Black</h3>
+                <p class="mi-desc">espresso, água e gelo</p>
+              </div>
+              <span class="mi-price">R$ 14,00</span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Iced Latte</h3>
+                <p class="mi-desc">espresso, leite e gelo</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 18</b><b>R$ 20</b><b>R$ 22</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Iced Caramel</h3>
+                <p class="mi-desc">caramelo, espresso, leite e gelo</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 28</b><b>R$ 30</b><b>R$ 32</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Iced Vanilla</h3>
+                <p class="mi-desc">baunilha, espresso, leite e gelo</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 28</b><b>R$ 30</b><b>R$ 32</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Orange Coffee</h3>
+                <p class="mi-desc">suco de laranja, espresso e gelo</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Coffee Tonic</h3>
+                <p class="mi-desc">água tônica, laranja, gelo e espresso</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Matcha
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-blue" aria-labelledby="matcha-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge blue"><i data-lucide="leaf" aria-hidden="true"></i></span>
+              <h2 id="matcha-title" class="title md">Matcha</h2>
+            </div>
+          </div>
+          <p class="sec-nota reveal">o matcha da casa é o Namu.</p>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Hot Latte Matcha</h3>
+                <p class="mi-desc">matcha e leite vaporizado</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 18</b><b>R$ 20</b><b>R$ 22</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Hot Vanilla Matcha</h3>
+                <p class="mi-desc">matcha, baunilha e leite vaporizado</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 22</b><b>R$ 24</b><b>R$ 26</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Iced Latte Matcha</h3>
+                <p class="mi-desc">matcha, leite e gelo</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 20</b><b>R$ 22</b><b>R$ 24</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Vanilla Iced Matcha</h3>
+                <p class="mi-desc">matcha, baunilha, leite e gelo</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 24</b><b>R$ 26</b><b>R$ 28</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Caramel Iced Matcha</h3>
+                <p class="mi-desc">matcha, caramelo, leite e gelo</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 28</b><b>R$ 30</b><b>R$ 32</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Strawberry Matcha</h3>
+                <p class="mi-desc">purê de morango, leite, gelo e matcha</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 24</b><b>R$ 26</b><b>R$ 28</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item leite">
+              <div>
+                <h3 class="mi-name">Passion Matcha</h3>
+                <p class="mi-desc">purê de maracujá, leite, gelo e matcha</p>
+              </div>
+              <span class="mi-price mi-precos">
+                <b>R$ 24</b><b>R$ 26</b><b>R$ 28</b>
+                <small>integral</small><small>zero lactose</small><small>vegetal</small>
+              </span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Orange Matcha</h3>
+                <p class="mi-desc">suco de laranja, gelo e matcha</p>
+              </div>
+              <span class="mi-price">R$ 28,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Chás
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-gold" aria-labelledby="chas-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge gold"><i data-lucide="glass-water" aria-hidden="true"></i></span>
+              <h2 id="chas-title" class="title md">Chás</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Blend Tea</h3>
+                <p class="mi-desc">blend de chá quentinho, consulta as opções do dia</p>
+              </div>
+              <span class="mi-price">R$ 14,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Hibisco Iced Tea</h3>
+                <p class="mi-desc">limão, gelo e chá de hibisco</p>
+              </div>
+              <span class="mi-price">R$ 18,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Capim limão Iced Tea</h3>
+                <p class="mi-desc">limão, gelo e chá de capim limão</p>
+              </div>
+              <span class="mi-price">R$ 18,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Juices e sodas
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-green" aria-labelledby="juices-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge green"><i data-lucide="citrus" aria-hidden="true"></i></span>
+              <h2 id="juices-title" class="title md">Juices e sodas</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Suco natural ou integral</h3>
+                <p class="mi-desc">consulta as opções do dia</p>
+              </div>
+              <span class="mi-price">R$ 14,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Suco verde</h3>
+                <p class="mi-desc">couve, abacaxi, limão, maracujá e gengibre</p>
+              </div>
+              <span class="mi-price">R$ 20,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Coca-Cola</h3>
+                <p class="mi-desc">normal ou zero</p>
+              </div>
+              <span class="mi-price">R$ 8,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Água</h3>
+                <p class="mi-desc">com ou sem gás</p>
+              </div>
+              <span class="mi-price">R$ 8,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Alcoólicos
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-coral" aria-labelledby="alcoolicos-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge coral"><i data-lucide="wine" aria-hidden="true"></i></span>
+              <h2 id="alcoolicos-title" class="title md">Alcoólicos</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list reveal">
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Heineken</h3>
+                <p class="mi-desc">normal ou zero</p>
+              </div>
+              <span class="mi-price">R$ 12,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Vinho, taça ou garrafa</h3>
+                <p class="mi-desc">consulta as opções do dia</p>
+              </div>
+              <span class="mi-price">R$ 38,00 / 88,00</span>
+            </li>
+            <li class="menu-item">
+              <div>
+                <h3 class="mi-name">Espumante, garrafa</h3>
+                <p class="mi-desc">consulta as opções do dia</p>
+              </div>
+              <span class="mi-price">R$ 98,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Adicionais — no impresso são duas colunas de itens curtinhos, sem
+           descrição. A .menu-list ganha a variante .adicionais (CSS no fim
+           desta página) pra virar grade e não descer uma lista de 19 linhas.
+           =================================================================== -->
+      <section class="section tight sec-cardapio acc-blue" aria-labelledby="adicionais-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div style="display: flex; align-items: center; gap: 16px">
+              <span class="icon-badge blue"><i data-lucide="plus" aria-hidden="true"></i></span>
+              <h2 id="adicionais-title" class="title md">Adicionais</h2>
+            </div>
+          </div>
+
+          <ul class="menu-list adicionais reveal">
+            <li class="menu-item">
+              <div><h3 class="mi-name">Creme de avocado</h3></div>
+              <span class="mi-price">R$ 8,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Cream cheese</h3></div>
+              <span class="mi-price">R$ 8,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Ovos mexidos (2 un)</h3></div>
+              <span class="mi-price">R$ 8,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Ovo frito</h3></div>
+              <span class="mi-price">R$ 4,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Geleia</h3></div>
+              <span class="mi-price">R$ 6,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Bacon (3 fatias)</h3></div>
+              <span class="mi-price">R$ 10,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Manteiga</h3></div>
+              <span class="mi-price">R$ 6,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Mel</h3></div>
+              <span class="mi-price">R$ 4,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Aioli</h3></div>
+              <span class="mi-price">R$ 4,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Salmão gravlax</h3></div>
+              <span class="mi-price">R$ 26,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Pão de fermentação natural</h3></div>
+              <span class="mi-price">R$ 8,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Doce de leite</h3></div>
+              <span class="mi-price">R$ 4,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Brigous da casa</h3></div>
+              <span class="mi-price">R$ 8,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Queijo mussarela</h3></div>
+              <span class="mi-price">R$ 6,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Carne de panela</h3></div>
+              <span class="mi-price">R$ 14,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Frango grelhado</h3></div>
+              <span class="mi-price">R$ 12,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Cogumelo</h3></div>
+              <span class="mi-price">R$ 14,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Tomate assado</h3></div>
+              <span class="mi-price">R$ 4,00</span>
+            </li>
+            <li class="menu-item">
+              <div><h3 class="mi-name">Sorvete</h3></div>
+              <span class="mi-price">R$ 8,00</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- fecha o cardápio com as quatro cores, na ordem das seções -->
+      <div class="cardapio-faixa" aria-hidden="true">
+        <span style="background: var(--gold)"></span>
+        <span style="background: var(--green)"></span>
+        <span style="background: var(--coral)"></span>
+        <span style="background: var(--blue)"></span>
+      </div>
+    </main>
+
+    <!-- Footer injetado pelo app.js -->
+    <div id="site-footer"></div>
+
+    <!-- Estilos pontuais desta página -->
+    <style>
+      .menu-list { list-style: none; margin: 0; padding: 0; }
+      /* Nota curta logo abaixo do título da seção (opções veganas, ordem dos
+         três preços do leite, e por aí). */
+      /* Os três preços do leite, item a item: a régua fica embaixo do preço, em
+         miúdo, pra ninguém ter que subir até a nota da seção pra saber qual é
+         qual. Quebra em duas linhas quando a coluna aperta. */
+      /* Os três preços do leite viram uma gradezinha de 3 colunas: cada valor
+         fica EM CIMA do leite dele (integral, zero lactose, vegetal). As duas
+         linhas são do mesmo grid, então a coluna se alinha pelo mais largo dos
+         dois e preço e rótulo nunca saem do prumo. */
+      .mi-precos { display: grid; grid-template-columns: repeat(3, auto); gap: 2px 16px; justify-items: center; white-space: nowrap }
+      .mi-precos b { font-family: var(--serif); font-weight: 500; font-size: 17px; color: var(--coral); font-variant-numeric: tabular-nums }
+      .mi-precos small { font-family: var(--sans); font-size: 10.5px; line-height: 1.3; color: var(--muted) }
+      /* No celular a grade não cabe ao lado do nome: desce pra baixo dele e
+         ocupa a linha inteira, em três colunas iguais. */
+      @media (max-width: 560px) {
+        .menu-item.leite { flex-direction: column; align-items: stretch }
+        .menu-item.leite .mi-precos { grid-template-columns: repeat(3, 1fr); justify-items: center; gap: 2px 8px; margin-top: 10px }
+      }
+      .sec-nota { margin: -6px 0 14px; font-size: 13.5px; line-height: 1.55; color: var(--muted); max-width: 60ch }
+      /* Adicionais: no impresso são duas colunas de itens curtos. Vira grade e
+         volta pra uma coluna sozinha quando não cabe. */
+      .menu-list.adicionais { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); column-gap: 36px }
+    </style>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
